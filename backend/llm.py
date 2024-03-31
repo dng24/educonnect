@@ -29,6 +29,13 @@ analysis_types = [
     "there should not be any text in "
     "the output at all"
 ]
+
+strengths_and_weaknesses_prompts = [
+    "the strengths this professor has in general, the format should be a single sentence of a description no lists or "
+    "new lines",
+    "the weaknesses this professor has in general, the format should be a single sentence of a description no lists or "
+    "new lines "
+]
 def make_openai_chat_call(prompt):
     response = openai.ChatCompletion.create(
         model="gpt-3.5-turbo",
@@ -43,7 +50,10 @@ def process_data(professor_name, analysis_type, review):
     result = make_openai_chat_call(prompt)
     return result
 
-
+def process_strengths_and_weaknesses(professor_name, strengths_weaknesses, review):
+    prompt = f"based of professor {professor_name}, and with this data {review}, what would be a small description of {strengths_weaknesses}?"
+    result = make_openai_chat_call(prompt)
+    return result
 def process_csv(csv_file_path, professor_column):
     data_from_csv = []
     with open(csv_file_path, mode='r', encoding='utf-8') as csv_file:
@@ -72,6 +82,10 @@ def process_single_row(prof_name, prof_reviews):
             _ = int(result)  # Attempt to cast result to int to check if it's a valid number
         except ValueError:
             result = "50"  # Default to "50" if the result cannot be cast to int
+        results.append(result)  # Append each result to the list.
+
+    for strengths_and_weakness in strengths_and_weaknesses_prompts:
+        result = process_strengths_and_weaknesses(prof_name, strengths_and_weakness, prof_reviews)
         results.append(result)  # Append each result to the list.
 
     # Concatenate and print the results for this professor.
