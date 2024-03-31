@@ -110,11 +110,11 @@ body, html {
     display: block; /* Makes the label take up its own line */
     margin-bottom: 20px; /* Adds space between the label and the image */
     font-size: 1.2em;
-    color: black; /* Fun color for the text */
+    color: white; /* Fun color for the text */
 }
 
 .explanation-text p {
-    color: black; /* Choose a playful color */
+    color: white; /* Choose a playful color */
     font-size: 1.5em;
     animation: bounce 1.5s infinite;
 }
@@ -142,5 +142,21 @@ body.slide-in {
     100% { transform: translateX(0); }
 }
 
+/* You should add this to styler.css */
+.top-left-logo {
+    position: absolute;
+    top: 10px;
+    left: -725px;
+    width: 100px; /* You can adjust the size as needed */
+  }
+
+  /* You should add this to styler.css */
+.top-left-logo2 {
+    position: absolute;
+    top: 10px;
+    left: -620px;
+    width: 100px; /* You can adjust the size as needed */
+  }
+  
 
 

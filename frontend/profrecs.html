@@ -16,12 +16,11 @@
     </script>
   </head>
 
-  <body onload=" videoID(['fugueIIIframe', 'preludeXXIIIIframe', 'preludeXXIIIIframe1', 'preludeXXIIIIframe2', 'preludeXXIIIIframe3', 'invention6Iframe', 'invention8Iframe', 'invention13Iframe', 'invention14Iframe']);" onresize="resizeWindow();">
+  <body>
     <!--Top Bar-->
     <div id="topBar">
-      <span onmouseover="hovIcon();" onmouseout="unHovIcon();" onclick="clickIcon();"><a href="landing.html"><img id="homeIcon" src="homeIcon.png"></a></span>
-      <span>&nbsp;</span>
-      <!-- <span id="openNav" onclick="openNavBar();">&#9776;</span> -->
+        <span onmouseover="hovIcon();" onmouseout="unHovIcon();" onclick="clickIcon();"><a href="landing.html"><img id="homeIcon" src="homeIcon.png"></a></span>
+        <span>&nbsp;</span>
     </div>
 
     <!--Side Navbar-->
@@ -36,56 +35,108 @@
         
         <form id="surveyForm">
           <div class="survey-question">
-            <label for="question1">How good are you at going to lectures?</label>
+            <label for="question1"><p>How good are you at going to lectures?</p></label>
             <input type="range" id="question1" name="question1" min="1" max="10">
             <!--<span id="question1-value">5</span> / 10 --> <span id="question1-annotation"></span>
         
           </div>
           <br>
+          <!-- Add text boxes -->
+        <div class="text-boxes">
+          <div class="text-box">
+              <label for="textbox1">Explain:</label><br>
+              <input type="text" id="textbox1" name="textbox1">
+          </div>
+          <br>
           <div class="survey-question">
-            <label for="question2">How important are lectures to your learning experience?</label>
+            <label for="question2"><p>How important are lectures to your learning experience?</p></label>
             <input type="range" id="question2" name="question2" min="1" max="10">
             <!--<span id="question2-value">5</span> / 10--> <span id="question2-annotation"></span>
           </div><br>
+          <!-- Add text boxes -->
+        <div class="text-boxes">
+          <div class="text-box">
+              <label for="textbox2">Explain:</label><br>
+              <input type="text" id="textbox2" name="textbox2">
+          </div><br>
 
           <div class="survey-question">
-            <label for="question3">How good are you at exams?</label>
+            <label for="question3"><p>How good are you at exams?</p></label>
             <input type="range" id="question3" name="question3" min="1" max="10">
             <!--<span id="question1-value">5</span> / 10 --> <span id="question3-annotation"></span>
         
           </div>
           <br>
+          <!-- Add text boxes -->
+        <div class="text-boxes">
+          <div class="text-box">
+              <label for="textbox3">Explain:</label><br>
+              <input type="text" id="textbox3" name="textbox3">
+          </div><br>
           <div class="survey-question">
-            <label for="question4">How many questions do you like to ask in class?</label>
+            <label for="question4"><p>How many questions do you like to ask in class?</p></label>
             <input type="range" id="question4" name="question4" min="1" max="10">
             <!--<span id="question2-value">5</span> / 10--> <span id="question4-annotation"></span>
           </div><br>
+          <div class="text-boxes">
+            <div class="text-box">
+                <label for="textbox4">Explain:</label><br>
+                <input type="text" id="textbox4" name="textbox4">
+            </div><br>
 
           <div class="survey-question">
-            <label for="question5">How important are in-class question answers to you?</label>
+            <label for="question5"><p>How important are in-class question answers to you?</p></label>
             <input type="range" id="question5" name="question5" min="1" max="10">
             <!--<span id="question1-value">5</span> / 10 --> <span id="question5-annotation"></span>
         
           </div>
           <br>
+          <!-- Add text boxes -->
+        <div class="text-boxes">
+          <div class="text-box">
+              <label for="textbox5">Explain:</label><br>
+              <input type="text" id="textbox5" name="textbox5">
+          </div> <br>
           <div class="survey-question">
-            <label for="question6">How many questions do you like to ask in emails and/or forums?</label>
+            <label for="question6"><p>How many questions do you like to ask in emails and/or forums?</p></label>
             <input type="range" id="question6" name="question6" min="1" max="10">
             <!--<span id="question2-value">5</span> / 10--> <span id="question6-annotation"></span>
           </div><br>
+          <div class="text-boxes">
+            <div class="text-box">
+                <label for="textbox6">Explain:</label><br>
+                <input type="text" id="textbox6" name="textbox6">
+            </div> <br>
 
           <div class="survey-question">
-            <label for="question7">How many important are good question answers on forums to you?</label>
+            <label for="question7"><p>How many important are good question answers on forums to you?</p></label>
             <input type="range" id="question7" name="question7" min="1" max="10">
             <!--<span id="question1-value">5</span> / 10 --> <span id="question7-annotation"></span>
         
           </div>
           <br>
+          <!-- Add text boxes -->
+        <div class="text-boxes">
+          <div class="text-box">
+              <label for="textbox7">Explain:</label><br>
+              <input type="text" id="textbox7" name="textbox7">
+          </div> <br>
           <div class="survey-question">
-            <label for="question8">How good are you at dealing with homework workload?</label>
+            <label for="question8"><p>How good are you at dealing with homework workload?</p></label>
             <input type="range" id="question8" name="question8" min="1" max="10">
             <!--<span id="question2-value">5</span> / 10--> <span id="question8-annotation"></span>
           </div><br>
+          <!-- Add text boxes -->
+        <div class="text-boxes">
+          <div class="text-box">
+              <label for="textbox8">Explain:</label><br>
+              <input type="text" id="textbox8" name="textbox8">
+          </div><br>
+          <div class="text-boxes">
+            <div class="text-box">
+                <label for="textbox9">Class:</label><br>
+                <input type="text" id="textbox9" name="textbox9">
+            </div><br>
           
           
           <button type="submit">Find your Professors</button>
@@ -94,6 +145,12 @@
           
       </div>
     </nav>
+
+    <div class="bouncing-text">
+      Tap to take learning survey!
+    </div>
+    <button id="plusButton" onclick="openNavBar();">+</button>
+    
 
     <!-- Plus Button -->
     <button id="plusButton" onclick="openNavBar();">+</button>

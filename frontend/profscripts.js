@@ -128,6 +128,7 @@ function openNavBar() {
     document.getElementsByTagName("nav")[0].getElementsByTagName("div")[0].style.opacity = "1";
   }, 500);
 
+  toggleBouncingText();
   
 }
 
@@ -270,6 +271,78 @@ function createLoadingModal() {
     </div>
   `;
   return modal;
+}
+
+// Add this function to your JavaScript file
+function toggleBouncingText() {
+  var bouncingText = document.querySelector('.bouncing-text');
+  if (bouncingText) {
+      bouncingText.classList.toggle('hidden');
+  }
+}
+
+
+// Add this code to check if the user has visited the page before
+document.addEventListener("DOMContentLoaded", function () {
+  var visited = localStorage.getItem('visited_profecs_page');
+  if (!visited) {
+      var bouncingText = document.querySelector('.bouncing-text');
+      if (bouncingText) {
+          bouncingText.classList.remove('hidden');
+      }
+  }
+
+  // Mark the page as visited
+  localStorage.setItem('visited_profecs_page', true);
+});
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  // Slide-in effect for page load
+  document.body.classList.add('slide-in');
+
+  // Add slide-out transition for navigation links
+  document.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', function(event) {
+          if (this.href) {
+              event.preventDefault();
+              var destination = this.href;
+
+              document.body.classList.add('slide-out');
+
+              setTimeout(function() {
+                  window.location.href = destination;
+              }, 500); // Duration should match your CSS animation
+          }
+      });
+  });
+
+  // Add event listener to the "Find your Professors" button
+  document.querySelector('#surveyForm button[type="submit"]').addEventListener('click', function(event) {
+      event.preventDefault(); // Prevent default form submission behavior
+
+      // Close the side navigation bar
+      closeNavBar();
+
+      // Get the value of textbox9
+      var className = document.getElementById('textbox9').value;
+
+      // Show the main content button with the class name
+      showMainContentButton(className);
+  });
+});
+
+// Function to show the main content button with the class name
+function showMainContentButton(className) {
+  var mainContentButton = document.createElement('button');
+  mainContentButton.textContent = className;
+  mainContentButton.addEventListener('click', function() {
+      // Perform any action you want when the main content button is clicked
+      // For example, you can show a modal related to the class or navigate to another page
+  });
+
+  // Append the button to the main content div
+  document.getElementById('mainContent').appendChild(mainContentButton);
 }
 
 
