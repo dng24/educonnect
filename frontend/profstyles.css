@@ -1,0 +1,419 @@
+html, body {
+    margin: 0;
+    font-family: 'Baloo Bhai 2', cursive; /* Playful and fun font */
+    height: 100%;
+    scroll-behavior: smooth;
+    background: linear-gradient(to right, #3949AB, #5C6BC0); /* Gradient background */
+  }
+  
+  /*---------Top-Bar--------*/
+  #topBar {
+    background-color: #5C6BC0;
+    width: 100%;
+    margin: 0;
+    padding-left: 4%;
+    padding-top: 1%;
+    z-index: 1;
+    position: fixed;
+    top: 0;
+    transition: 0.5s;
+    height: 30px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Add shadow for depth */
+  }
+  
+  #openNav {
+    cursor: pointer;
+    font-size: 1.5em;
+    color: white;
+  }
+  
+  #openNav:hover {
+    color: #aaaaaa;
+  }
+  
+  #openNav:active {
+    color: #777777;
+  }
+  
+  #homeIcon {
+    height: 19px;
+  }
+  
+  #homeIcon:hover {
+    src: url(homeIconHov.png);
+    transition: 0.5s;
+  }
+  
+  /*-----Nav-Bar--------------------------*/
+  nav {
+    position: fixed;
+    top: 0;
+    width: 500px;
+    height: 100%;
+    background-color: black; /* Bright and fun color */
+    color: white;
+    overflow-x: hidden;
+    transition: 0.5s;
+    box-shadow: 4px 0px 10px rgba(0,0,0,0.4);
+  }
+  
+  nav div {
+    transition: 0.5s;
+    opacity: 1;
+  }
+  
+  #nav {
+    list-style: none;
+    padding: 0;
+  }
+  
+  #nav li {
+    padding: 0 0 5px 10%;
+  }
+  
+  #nav a {
+    text-decoration: none;
+    color: #3949AB; /* Complementing color */
+  }
+  
+  #nav a:hover {
+    color: #00d9ff;
+  }
+  
+  #nav a:active {
+    color: #00A9C6;
+  }
+  
+  h2 {
+    padding: 0 0 0 10%;
+  }
+  
+  /*-----Nav-Bar--------------------------*/
+  input[type="range"] {
+    -webkit-appearance: none; /* Removes default webkit styles */
+    width: 400px; /* Specific width can be set */
+    height: 8px; /* Height of the slider */
+    background: #ddd; /* Background color */
+    border-radius: 5px; /* Rounded corners */
+    outline: none; /* Removes the outline */
+    opacity: 0.7; /* Makes the slider slightly transparent */
+    -webkit-transition: .2s; /* Smooth transition */
+    transition: opacity .2s;
+  }
+  
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Removes default webkit styles */
+    appearance: none;
+    width: 20px; /* Width of the thumb */
+    height: 20px; /* Height of the thumb */
+    background: #5C6BC0; /* Thumb background color */
+    border-radius: 50%; /* Rounds the thumb */
+    cursor: pointer; /* Cursor on hover */
+  }
+  
+  input[type="range"]::-moz-range-thumb {
+    width: 20px; /* Width of the thumb */
+    height: 20px; /* Height of the thumb */
+    background: #3949Ab; /* Thumb background color */
+    border-radius: 50%; /* Rounds the thumb */
+    cursor: pointer; /* Cursor on hover */
+  }
+  
+  input[type="range"]:focus::-webkit-slider-thumb {
+    background: #3949Ab; /* Darker green variant */
+  }
+  
+  input[type="range"]:focus::-moz-range-thumb {
+    background: #45a049; /* Darker green variant */
+  }
+  
+  /*-----Titles-------*/
+  #homeTitle {
+    background-image: url("pianoTitle.JPG"); /*https://upload.wikimedia.org/wikipedia/commons/8/87/Steinway_grand_piano_strings_and_keys.JPG*/
+    height: 100%;
+  }
+  
+  .compTitle {
+      margin-top: 100px;
+     background-image: url("pianoBckgd.jpg");
+     background-size: cover;
+     background-attachment: fixed;
+     width: 100%;
+     background-position: 50% 50%;
+  }
+  
+  @media handheld, only screen and (max-width: 769px) {
+      .compTitle {
+          background-attachment: scroll !important;
+      }
+  }
+  
+  h1 {
+    padding: 0;
+    text-align: center;
+    color: black;
+    transition: 0.5s;
+    font-size: 2.5em;
+  }
+  
+  #homeTitle h1 {
+    font-size: 3.5em;
+      padding: 20% 0% 25% 0%;
+    margin: 0;
+  }
+  
+  #arrow {
+    padding-top: 50px;
+  }
+  
+  /*-----Main-Content--------------------------*/
+  #mainContent {
+    
+      width: 80%;
+      padding: 0 5% 0 5%;
+      transition: 0.5s;
+      margin-top: 50px; /* Add a top margin to push it down */
+  }
+  
+  .buttons-row {
+    display: flex;
+    justify-content: left;
+    flex-wrap: wrap;
+    gap: 20px; /* Spacing between buttons */
+  }
+  
+  #mainContent button {
+    min-width: 150px; /* Minimum width of buttons to make them bigger */
+    padding: 30px 50px; /* Larger padding for bigger buttons */
+    font-size: 1.2em; /* Larger font size for button text */
+    border-radius: 5px; /* Optional: rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  p {
+    padding: 0 5% 0 5%;
+    font-size: 1.25em;
+  }
+  
+  button {
+    width: auto;
+    min-width: 200px;
+    padding: 30px 30px;
+    background-color: #ffffff;
+    border: 1px solid #e1e1e1;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    font-size: 1em;
+    color: #333;
+    transition: all 0.3s ease;
+    text-transform: none;
+    font-weight: normal;
+  }
+  
+  button:hover {
+    cursor: pointer;
+    background-color: #e6e6e6;
+  }
+  
+  button:active {
+    background-color: #aeaeae;
+  }
+  
+  #plusButton {
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    width: 0px;
+    height: 100px;
+    border-radius: 100%;
+    background-color: #5C6BC0;
+    color: white;
+    font-size: 2em;
+    border: none;
+    cursor: pointer; 
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    outline: none; 
+    z-index: 1000; /* Keep on top of other elements */
+    transition: background-color 0.3s ease; 
+  }
+  
+  #plusButton:hover {
+    background-color: #3949AB; /* Darker shade on hover */
+  }
+  
+  #bigDiv {
+      margin: 5% 8% 5% 8%;
+  }
+  
+  #icons {
+      display: inline-block;
+      width: 24%;
+      vertical-align: top;
+      min-width: 200px;
+      margin: auto;
+  }
+  
+  #icons p {
+      diplay: block;
+      text-align: center;
+  }
+  
+  #icons img {
+      display: block;
+      opacity: 0.5;
+      filter: alpha(opacity=50);
+      width: 10%;
+      border-radius: 50%;
+      min-width: 100px;
+      margin: auto;
+      -webkit-transition-duration: 0.4s;
+      transition-duration: 0.4s;
+  }
+  
+  #icons img:hover {
+      opacity: 1;
+      filter: alpha(opacity=100);
+  }
+  
+  input {
+      display: block;
+      margin: auto;
+      padding: 2%;
+      background-color: white;
+      border-color: gray;
+      border-width: 1px;
+      -webkit-transition-duration: 0.4s;
+      transition-duration: 0.4s;
+      cursor: pointer;
+      -webkit-appearance: none;
+  }
+  
+  input:hover {
+      background-color: #aaaaaa;
+      color: white;
+      border-color: white;
+  }
+  
+  /*------Modal-----------------------*/
+  .modal {
+    display: none;
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: fixed;
+    overflow: scroll;
+  }
+  
+  .modalContent {
+    background-color: white;
+    border-style: solid;
+    border-width: 7px;
+    border-color: #5C6BC0;
+    border-radius: 5px;
+    margin: 10%;
+  }
+  
+  .modalContent p, iframe {
+    padding: 0 5% 16px 5%;
+    margin: 0;
+    border: 0;
+  }
+  
+  iframe {
+    width: 60%;
+    min-width: 225px;
+  }
+  
+  .closeBtn {
+    float: right;
+    padding-right: 15px;
+    cursor: pointer;
+    font-size: 2em;
+    color: rgb(73, 73, 73);
+  }
+  
+  .closeBtn:hover {
+    color: #aaaaaa;
+  }
+  
+  closeBtn:active {
+    color: #767676;
+  }
+  
+  h3 {
+    text-align: center;
+    font-size: 1.75em;
+  }
+  
+  /*------Footer----------*/
+  #footer {
+    background-color: #E17E06;
+    width: 100%;
+    text-align: center;
+    transition: 0.5s;
+  }
+  
+  hr {
+      width: 90%;
+      background-color: #ffffff;
+      height: 5px;
+      border: none;
+      margin: 2% 5% 3% 5%;
+  }
+  
+  #courseSchedule {
+      margin: 300px auto 20px; /* Adjust top margin to push it down, auto for horizontal centering, and 20px bottom margin */
+      padding: 10px;
+      border: 1px solid #ddd;
+      min-width: 300px; /* Minimum width */
+      width: 80%; /* Relative to the container */
+      max-width: 600px; /* You can set a maximum width if needed */
+  }
+  
+  #courseSchedule h2 {
+      text-align: center;
+  }
+  
+  #courseSchedule div {
+      padding-left: 10000px;
+      margin-bottom: 10px;
+      padding: 5px;
+      background-color: #f0f0f0;
+  }
+  
+  #courseQuestionnaire {
+      text-align: center; /* Centers the text and buttons horizontally */
+      margin: auto; /* For horizontal centering */
+      width: fit-content; /* Adjust the width of the container to the width of its content */
+      padding: 20px; /* Optional: for some space inside the container */
+  }
+  
+  /* Optional: Center the whole questionnaire container vertically on the page */
+  /* You can adjust or remove these styles based on your layout needs */
+  #courseQuestionnaire {
+      position: absolute;
+      top: 25%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: auto; /* Adjust as needed */
+  }
+
+  
+  #surveyForm {
+    max-width: 90%; /* Reducing the maximum width */
+    margin: 0 auto; /* Center the form */
+}
+
+
+[id$="-annotation"] {
+  display: block;
+  
+  color: gray;
+  margin: 0px 15px;
+}
+
+
+  

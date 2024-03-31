@@ -1,0 +1,146 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: 'Baloo Bhai 2', cursive; /* Fun and playful font */
+    background: linear-gradient(to right, #3949AB 0%, #5C6BC0 100%);
+    opacity: 1; /* Adjusted for correct opacity */
+    transition: opacity 2.0s; /* Fade-in effect */
+}
+
+.login-container {
+    background-color: #f9f9f9; /* Soft background color */
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    width: 100%;
+    max-width: 400px; /* Adjust width as needed */
+}
+
+#title-text {
+    font-size: 2.5em; /* Adjust the size as needed */
+    margin-bottom: 20px;
+}
+
+/* Style for the form */
+#loginForm {
+    display: flex;
+    flex-direction: column;
+}
+
+#loginForm input[type="email"], 
+#loginForm input[type="password"] {
+    width: 95%; /* Full width */
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 10px; /* Rounded corners */
+    border: 2px solid #5C6BC0; /* Fun border color */
+}
+
+#loginForm button {
+    width: 101%;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #5C6BC0; /* Fun button color */
+    color: white; /* Text color */
+    border: none;
+    border-radius: 10px; /* Rounded corners */
+    transition: background-color 0.3s; /* Smooth transition */
+}
+
+#loginForm button:hover {
+    background-color: #5C6BC0; /* Darker shade on hover */
+}
+
+.survey-container {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+}
+
+.question {
+    margin-bottom: 15px;
+}
+
+.slider-value {
+    margin-left: 10px;
+    font-weight: bold;
+}
+
+/* Style the submit button similar to your login button */
+#button-login {
+    width: 106%;
+}
+
+.button-container {
+    display: flex; /* Enables Flexbox */
+    justify-content: center; /* Centers the flex items horizontally */
+    align-items: center; /* Centers the flex items vertically */
+    padding-top: 20px;
+    gap: 20px; /* Adds space between the button containers */
+}
+
+.button-container img {
+    background-color: #f9f9f9;
+    border-radius: 15%;
+    width: 150px; /* Adjust the width as needed */
+    height: auto; /* Keeps the aspect ratio intact */
+    cursor: pointer; /* Changes the cursor to indicate it's clickable */
+    margin: 10px; /* Adds space around the images */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s; /* Smooth transitions */
+}
+
+.button-container img:hover {
+    border-radius: 15%;
+    transform: scale(1.1); /* Enlarges the image on hover */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.7); /* Circular shadow effect */
+}
+
+.image-container {
+    text-align: center; /* Centers the label and the image */
+}
+
+.image-label {
+    display: block; /* Makes the label take up its own line */
+    margin-bottom: 20px; /* Adds space between the label and the image */
+    font-size: 1.2em;
+    color: black; /* Fun color for the text */
+}
+
+.explanation-text p {
+    color: black; /* Choose a playful color */
+    font-size: 1.5em;
+    animation: bounce 1.5s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+
+body.slide-out {
+    animation: slideOut 0.5s forwards;
+}
+
+@keyframes slideOut {
+    100% { transform: translateX(-100%); }
+}
+
+body.slide-in {
+    transform: translateX(100%);
+    animation: slideIn 0.5s forwards;
+}
+
+@keyframes slideIn {
+    100% { transform: translateX(0); }
+}
+
+
+

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <title>Class</title>
+    <link rel="stylesheet" type="text/css" href="profstyles.css">
+    <script src="profscripts.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.png" type="image/icon" sizes="16x16">
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            document.body.classList.add('slide-in');
+        });
+    </script>
+</head>
+
+  <body onload="generateNavBar(); videoID(['fugueIIIframe', 'preludeXXIIIIframe', 'preludeXXIIIIframe1', 'preludeXXIIIIframe2', 'preludeXXIIIIframe3', 'invention6Iframe', 'invention8Iframe', 'invention13Iframe', 'invention14Iframe']);" onresize="resizeWindow();">
+    <!--Top Bar-->
+    <div id="topBar">
+      <span onmouseover="hovIcon();" onmouseout="unHovIcon();" onclick="clickIcon();"><a href="index.html"><img id="homeIcon" src="homeIcon.png"></a></span>
+      <span>&nbsp;</span>
+      <span id="openNav" onclick="openNavBar();">&#9776;</span>
+    </div>
+
+    <!--The Titles-->
+    <div class="compTitle">
+      <h1>CS Courses Overview</h1>
+    </div>
+
+    <div id="courseQuestionnaire">
+      <h2>Find Your Ideal Courses</h2>
+      <p>Are you a morning person or an afternoon person?</p>
+      <button onclick="buildSchedule('morning');">Morning Person</button>
+      <button onclick="buildSchedule('afternoon');">Afternoon Person</button>
+  </div>
+
+  <div id="courseSchedule"></div>
+
+    <!--The main content-->
+    <div id="mainContent">
+      <p>Explore our Computer Science courses below:</p>
+      <button data-time="09:00" onclick="showModal('cs101Modal');">CS 101: Introduction to Computer Science</button>
+      <button data-time="11:00" onclick="showModal('cs102Modal');">CS 102: Data Structures</button>
+      <button data-time="13:00" onclick="showModal('cs103Modal');">CS 103: Algorithms</button>
+      <button data-time="15:00" onclick="showModal('cs104Modal');">CS 104: Computer Architecture</button>
+      <button data-time="18:00" onclick="showModal('cs105Modal');">CS 105: Operating Systems</button>
+      <button data-time="20:00" onclick="showModal('cs106Modal');">CS 106: Database Systems</button>
+    </div>
+
+     <!-- CS 101 Course Description Modal -->
+     <div id="cs101Modal" class="modal">
+      <div class="modalContent">
+        <span class="closeBtn" onclick="hideModal('cs101Modal');">&times;</span>
+        <h3>CS 101: Introduction to Computer Science</h3>
+        <p>This introductory course covers the basics of computer science and programming. Students will learn about algorithms, data structures, software engineering, and network communication.</p>
+      </div>
+    </div>
+
+    <!-- CS 102 Course Description Modal -->
+    <div id="cs102Modal" class="modal">
+      <div class="modalContent">
+        <span class="closeBtn" onclick="hideModal('cs102Modal');">&times;</span>
+        <h3>CS 102: Data Structures</h3>
+        <p>This course dives into data structures, exploring how they are designed, analyzed, and implemented. Topics include arrays, linked lists, stacks, queues, trees, and graphs.</p>
+      </div>
+    </div>
+
+    <!-- CS 103 Course Description Modal -->
+    <div id="cs103Modal" class="modal">
+      <div class="modalContent">
+        <span class="closeBtn" onclick="hideModal('cs103Modal');">&times;</span>
+        <h3>CS 103: Algorithms</h3>
+        <p>An in-depth look at algorithm design and analysis. Students will learn about sorting algorithms, search algorithms, graph algorithms, and more.</p>
+      </div>
+    </div>
+
+    <!-- CS 104 Course Description Modal -->
+<div id="cs104Modal" class="modal">
+  <div class="modalContent">
+    <span class="closeBtn" onclick="hideModal('cs104Modal');">&times;</span>
+    <h3>CS 104: Computer Architecture</h3>
+    <p>This course introduces the basic concepts of computer architecture. Topics include the digital logic level, the micro-architecture level, the machine instruction set architecture level, and the operating system machine level.</p>
+  </div>
+</div>
+
+<!-- CS 105 Course Description Modal -->
+<div id="cs105Modal" class="modal">
+  <div class="modalContent">
+    <span class="closeBtn" onclick="hideModal('cs105Modal');">&times;</span>
+    <h3>CS 105: Operating Systems</h3>
+    <p>Students in this course will learn about the fundamental components of operating systems, including process management, memory management, file systems, and more. The course combines theory with practical exercises.</p>
+  </div>
+</div>
+
+<!-- CS 106 Course Description Modal -->
+<div id="cs106Modal" class="modal">
+  <div class="modalContent">
+    <span class="closeBtn" onclick="hideModal('cs106Modal');">&times;</span>
+    <h3>CS 106: Database Systems</h3>
+    <p>This course offers an introduction to database design and the use of database management systems for applications. It covers the relational model, SQL, schema design, optimizations, and more.</p>
+  </div>
+</div>
+
+    <script>
+        // Your JavaScript code to handle modal display
+    </script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+          // Slide-in effect for page load
+          document.body.classList.add('slide-in');
+  
+          // Add slide-out transition for navigation links
+          document.querySelectorAll('a').forEach(link => {
+              link.addEventListener('click', function(event) {
+                  if (this.href) {
+                      event.preventDefault();
+                      var destination = this.href;
+  
+                      document.body.classList.add('slide-out');
+  
+                      setTimeout(function() {
+                          window.location.href = destination;
+                      }, 500); // Duration should match your CSS animation
+                  }
+              });
+          });
+      });
+  </script>
+  
+  <!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+</body>
+</html>

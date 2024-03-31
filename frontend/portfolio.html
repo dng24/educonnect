@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Portfolio</title>
+    <link rel="icon" type="image/x-icon" href="https://www.wackyprint.com/designcodes/0/1/110/11102200.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<style>
+    body::-webkit-scrollbar {
+        display: none;
+    }
+
+    body {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+        overflow: auto;
+    }
+
+    @media screen and (max-width: 900px) {
+        body {
+            height: auto;
+        }
+    }
+
+    @media screen and (max-width: 1100px) {
+        .home-link {
+            display: none;
+        }
+    }
+
+</style>
+
+<body>
+    <div class="home-link">
+        <a href="/" class="home-button">
+            <i class="fas fa-arrow-left"></i> <i class="fas fa-home" style="margin-left: 15px;"></i>
+        </a>
+    </div>
+    <div class="portfolio-container">
+        <a href="https://github.com/frankiered/portfolio-website" target="_blank"  class="portfolio-item" 
+            onmouseenter="positionBubble(event)" 
+            onmousemove="positionBubble(event)">
+            <div class="portfolio-date">1/21/2024</div>
+            <div class="portfolio-title">Portfolio Website</div>
+            <div class="portfolio-code"><i class="fa-brands fa-html5"></i> + <i class="fa-brands fa-js"></i></div>
+            <div class="portfolio-description">The very website you're looking at.</div>
+        </a>
+        <a href="https://www.ticketcowboys.io/" target="_blank"  class="portfolio-item" 
+           onmouseenter="positionBubble(event)" 
+           onmousemove="positionBubble(event)">
+            <div class="portfolio-date">1/19/2024</div>
+            <div class="portfolio-title">Ticket Cowboys</div>
+            <div class="portfolio-code"><i class="fa-brands fa-html5"></i> + <i class="fa-brands fa-js"></i></div>
+            <div class="portfolio-description">Website for community of ticket brokers who specialize in flipping concert & event tickets for a profit.</div>
+        </a>
+        <a href="https://texttrove.io/" target="_blank"  class="portfolio-item" 
+           onmouseenter="positionBubble(event)" 
+           onmousemove="positionBubble(event)">
+            <div class="portfolio-date">10/20/2023</div>
+            <div class="portfolio-title">TextTrove</div>
+            <div class="portfolio-code"><i class="fa-brands fa-react"></i> + <i class="fa-brands fa-js"></i></div>
+            <div class="portfolio-description">Business phone number provider. Consolidates all of your online SMS text message notifications into one clean and easily accessible platform.</div>
+        </a>
+        <a href="https://invoice-mate.com/" target="_blank"  class="portfolio-item" 
+           onmouseenter="positionBubble(event)" 
+           onmousemove="positionBubble(event)">
+            <div class="portfolio-date">4/14/2023</div>
+            <div class="portfolio-title">InvoiceMate</div>
+            <div class="portfolio-code"><i class="fa-brands fa-html5"></i> + <i class="fa-brands fa-js"></i></div>
+            <div class="portfolio-description">Custom made invoice generator for business owner.</div>
+        </a>
+    </div>
+</body>
+
+<script>
+    function positionBubble(e) {
+        const item = e.currentTarget;
+        const rect = item.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        item.style.setProperty('--bubble-x', x + 'px');
+        item.style.setProperty('--bubble-y', y + 'px');
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const portfolioContainers = document.querySelectorAll(".portfolio-container");
+
+        setTimeout(function () {
+            portfolioContainers.forEach(function (container) {
+                container.classList.add("fade-in");
+            });
+        }, 100); 
+    });
+
+</script>
+
+</html>

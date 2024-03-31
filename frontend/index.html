@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>FindMyProfessor</title>
+    <link rel="icon" type="image/x-icon" href="https://www.wackyprint.com/designcodes/0/1/110/11102200.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="styler.css">
+
+    <script>
+        function showContent() {
+            window.location.href = 'landing.html';
+            var email = document.getElementById("email").value;
+            var password = document.getElementById("password").value;
+            // Add validation for email and password
+            if (email && password) {
+                window.location.href = 'landing.html';
+                //document.getElementById("loginForm").style.display = "none";
+                //document.getElementById("content").style.display = "block";
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="preloader">
+        <!-- Preloader content -->
+    </div>
+
+    <div class="login-container">
+        <h1 id='title-text'>EduConnect</h1>
+        <p class="website-description">Welcome to EduConnect! Please enter your login information to continue!</p>
+        
+        <form id="loginForm" onsubmit="showContent(); event.preventDefault();">
+            <input type="email" id="email" name="email" placeholder="Email Address" required>
+            <input type="password" id="password" name="password" placeholder="Password" required>
+            <button type="submit" id="button-login">Login</button>
+        </form>
+    </div>
+
+    <div id="content" style="display: none;">
+        <div class="survey-container">
+            <h2>Survey Questions</h2>
+
+            <!-- Survey questions here -->
+            <div class="question">
+                <label for="question1">How satisfied are you with our website?</label>
+                <input type="range" id="question1" name="question1" min="1" max="10" oninput="updateSliderValue(this)">
+                <span id="question1-value" class="slider-value">5</span>
+            </div>
+            <!-- Add more survey questions as needed -->
+
+            <button type="button" onclick="submitSurvey()">Submit Survey</button>
+        </div>
+
+        <!-- Other main content can be placed here -->
+    </div>
+
+    <script src="index.js"></script>
+    <!-- Other scripts if any -->
+</body>
+</html>

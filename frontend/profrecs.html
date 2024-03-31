@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <title>Professor</title>
+    <link rel="stylesheet" type="text/css" href="profstyles.css">
+    <script src="profscripts.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.png" type="image/icon" sizes="16x16">
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Add the slide-in class to body on page load
+            document.body.classList.add('slide-in');
+        });
+    </script>
+  </head>
+
+  <body onload=" videoID(['fugueIIIframe', 'preludeXXIIIIframe', 'preludeXXIIIIframe1', 'preludeXXIIIIframe2', 'preludeXXIIIIframe3', 'invention6Iframe', 'invention8Iframe', 'invention13Iframe', 'invention14Iframe']);" onresize="resizeWindow();">
+    <!--Top Bar-->
+    <div id="topBar">
+      <span onmouseover="hovIcon();" onmouseout="unHovIcon();" onclick="clickIcon();"><a href="landing.html"><img id="homeIcon" src="homeIcon.png"></a></span>
+      <span>&nbsp;</span>
+      <!-- <span id="openNav" onclick="openNavBar();">&#9776;</span> -->
+    </div>
+
+    <!--Side Navbar-->
+    <nav>
+  
+      <div>
+        <br>
+        <br>
+        <span class="closeBtn" onclick="closeNavBar();">&times;</span>
+        <br>
+        <h3>Where do you learn best?</h3>
+        
+        <form id="surveyForm">
+          <div class="survey-question">
+            <label for="question1">How good are you at going to lectures?</label>
+            <input type="range" id="question1" name="question1" min="1" max="10">
+            <!--<span id="question1-value">5</span> / 10 --> <span id="question1-annotation"></span>
+        
+          </div>
+          <br>
+          <div class="survey-question">
+            <label for="question2">How important are lectures to your learning experience?</label>
+            <input type="range" id="question2" name="question2" min="1" max="10">
+            <!--<span id="question2-value">5</span> / 10--> <span id="question2-annotation"></span>
+          </div><br>
+
+          <div class="survey-question">
+            <label for="question3">How good are you at exams?</label>
+            <input type="range" id="question3" name="question3" min="1" max="10">
+            <!--<span id="question1-value">5</span> / 10 --> <span id="question3-annotation"></span>
+        
+          </div>
+          <br>
+          <div class="survey-question">
+            <label for="question4">How many questions do you like to ask in class?</label>
+            <input type="range" id="question4" name="question4" min="1" max="10">
+            <!--<span id="question2-value">5</span> / 10--> <span id="question4-annotation"></span>
+          </div><br>
+
+          <div class="survey-question">
+            <label for="question5">How important are in-class question answers to you?</label>
+            <input type="range" id="question5" name="question5" min="1" max="10">
+            <!--<span id="question1-value">5</span> / 10 --> <span id="question5-annotation"></span>
+        
+          </div>
+          <br>
+          <div class="survey-question">
+            <label for="question6">How many questions do you like to ask in emails and/or forums?</label>
+            <input type="range" id="question6" name="question6" min="1" max="10">
+            <!--<span id="question2-value">5</span> / 10--> <span id="question6-annotation"></span>
+          </div><br>
+
+          <div class="survey-question">
+            <label for="question7">How many important are good question answers on forums to you?</label>
+            <input type="range" id="question7" name="question7" min="1" max="10">
+            <!--<span id="question1-value">5</span> / 10 --> <span id="question7-annotation"></span>
+        
+          </div>
+          <br>
+          <div class="survey-question">
+            <label for="question8">How good are you at dealing with homework workload?</label>
+            <input type="range" id="question8" name="question8" min="1" max="10">
+            <!--<span id="question2-value">5</span> / 10--> <span id="question8-annotation"></span>
+          </div><br>
+          
+          
+          <button type="submit">Find your Professors</button>
+          <br><br>
+        </form>
+          
+      </div>
+    </nav>
+
+    <!-- Plus Button -->
+    <button id="plusButton" onclick="openNavBar();">+</button>
+
+    <!--The Titles-->
+    <div class="compTitle">
+      <br><br><br><br>
+      <h1>Your Classes</h1>
+      <br>
+    </div>
+
+<!--The main content-->
+<div id="mainContent">
+  <div class="buttons-row">
+      <button onclick="showModal('cs101Modal')">CS 101: Introduction to Computer Science</button>
+      <button onclick="showModal('cs102Modal')">CS 102: Data Structures</button>
+      <button onclick="showModal('cs103Modal')">CS 103: Algorithms</button>
+      <button onclick="showModal('cs104Modal')">CS 104: Computer Architecture</button>
+      <button onclick="showModal('cs105Modal')">CS 105: Operating Systems</button>
+      <button onclick="showModal('cs106Modal')">CS 106: Database Systems</button>
+  </div>
+</div>
+
+<!-- Modals for each class -->
+<div id="cs101Modal" class="modal">
+  <div class="modalContent">
+      <span class="closeBtn" onclick="hideModal('cs101Modal')">&times;</span>
+      <h3>CS 101: Introduction to Computer Science</h3>
+      <p>This course provides an overview of computer science principles...</p>
+      <h4>Professor Rankings:</h4>
+      <ul>
+          <li><a href="professor1.html" target="_blank">Professor Jane Doe - Rank #1</a></li>
+          <li><a href="professor2.html" target="_blank">Professor John Smith - Rank #2</a></li>
+          <!-- Add more professors as needed -->
+      </ul>
+  </div>
+</div>
+
+
+<div id="cs102Modal" class="modal">
+  <div class="modalContent">
+      <span class="closeBtn" onclick="hideModal('cs102Modal')">&times;</span>
+      <h3>CS 102: Data Structures</h3>
+      <p>This course dives into data structures and their implementation...</p>
+      <h4>Professor Rankings:</h4>
+      <ul>
+          <li><a href="professor4.html" target="_blank">Professor David Kim - Rank #1</a></li>
+          <li><a href="professor2.html" target="_blank">Professor John Smith - Rank #2</a></li>
+          <!-- Add more professors as needed -->
+      </ul>
+  </div>
+</div>
+
+<div id="cs103Modal" class="modal">
+  <div class="modalContent">
+      <span class="closeBtn" onclick="hideModal('cs103Modal')">&times;</span>
+      <h3>CS 103: Algorithms</h3>
+      <p>Learn about the fundamental algorithms used in computer science...</p>
+      <h4>Professor Rankings:</h4>
+      <ul>
+          <li><a href="professor1.html" target="_blank">Professor Jane Doe - Rank #1</a></li>
+          <li><a href="professor2.html" target="_blank">Professor John Smith - Rank #2</a></li>
+          <!-- Add more professors as needed -->
+      </ul>
+  </div>
+</div>
+
+<div id="cs104Modal" class="modal">
+  <div class="modalContent">
+      <span class="closeBtn" onclick="hideModal('cs104Modal')">&times;</span>
+      <h3>CS 104: Computer Architecture</h3>
+      <p>An introduction to the structure and components of computer systems...</p>
+      <h4>Professor Rankings:</h4>
+      <ul>
+          <li><a href="professor1.html" target="_blank">Professor Jane Doe - Rank #1</a></li>
+          <li><a href="professor2.html" target="_blank">Professor John Smith - Rank #2</a></li>
+          <!-- Add more professors as needed -->
+      </ul>
+  </div>
+</div>
+
+<div id="cs105Modal" class="modal">
+  <div class="modalContent">
+      <span class="closeBtn" onclick="hideModal('cs105Modal')">&times;</span>
+      <h3>CS 105: Operating Systems</h3>
+      <p>Explore the design and functionality of operating systems...</p>
+      <h4>Professor Rankings:</h4>
+      <ul>
+          <li><a href="professor1.html" target="_blank">Professor Jane Doe - Rank #1</a></li>
+          <li><a href="professor5.html" target="_blank">Professor Emily Wright - Rank #2</a></li>
+          <!-- Add more professors as needed -->
+      </ul>
+  </div>
+</div>
+
+<div id="cs106Modal" class="modal">
+  <div class="modalContent">
+      <span class="closeBtn" onclick="hideModal('cs106Modal')">&times;</span>
+      <h3>CS 106: Database Systems</h3>
+      <p>Covers the principles of database systems design and management...</p>
+      <h4>Professor Rankings:</h4>
+      <ul>
+          <li><a href="professor3.html" target="_blank">Professor Clara Lee - Rank #1</a></li>
+          <li><a href="professor2.html" target="_blank">Professor John Smith - Rank #2</a></li>
+          <!-- Add more professors as needed -->
+      </ul>
+  </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Slide-in effect for page load
+        document.body.classList.add('slide-in');
+
+        // Add slide-out transition for navigation links
+        document.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', function(event) {
+                if (this.href) {
+                    event.preventDefault();
+                    var destination = this.href;
+
+                    document.body.classList.add('slide-out');
+
+                    setTimeout(function() {
+                        window.location.href = destination;
+                    }, 500); // Duration should match your CSS animation
+                }
+            });
+        });
+    });
+</script>
+
+  </body>
+</html>
