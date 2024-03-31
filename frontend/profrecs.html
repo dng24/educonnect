@@ -16,7 +16,7 @@
     </script>
   </head>
 
-  <body onload=" videoID(['fugueIIIframe', 'preludeXXIIIIframe', 'preludeXXIIIIframe1', 'preludeXXIIIIframe2', 'preludeXXIIIIframe3', 'invention6Iframe', 'invention8Iframe', 'invention13Iframe', 'invention14Iframe']);" onresize="resizeWindow();">
+  <body onresize="resizeWindow();">
     <!--Top Bar-->
     <div id="topBar">
       <span onmouseover="hovIcon();" onmouseout="unHovIcon();" onclick="clickIcon();"><a href="landing.html"><img id="homeIcon" src="homeIcon.png"></a></span>
@@ -88,11 +88,14 @@
           </div><br>
          
           <div class="survey-question">
-              <label for="class_code">What class would you like professor recommendations for?</label>
-              <input type="text" id="class_code" name="class_code">
+            <label for="class_code">What class would you like professor recommendations for?</label>
+            <input type="text" id="class_code" name="class_code">
           </div><br>
           
-          <button type="submit" onclick="getProfRecs();">Find your Professors</button>
+          <div id="surveyButton">
+            <button type="submit" onclick="getProfRecs();">Find your Professors</button>
+            <img src="loading.gif" alt="Loading..." style="width: 100px; height: auto; margin: auto;">
+          </div>
           <br><br>
         </form>
           
@@ -109,126 +112,126 @@
       <br>
     </div>
 
-<!--The main content-->
-<div id="mainContent">
-  <div class="buttons-row">
-      <button onclick="showModal('cs101Modal')">CS 101: Introduction to Computer Science</button>
-      <button onclick="showModal('cs102Modal')">CS 102: Data Structures</button>
-      <button onclick="showModal('cs103Modal')">CS 103: Algorithms</button>
-      <button onclick="showModal('cs104Modal')">CS 104: Computer Architecture</button>
-      <button onclick="showModal('cs105Modal')">CS 105: Operating Systems</button>
-      <button onclick="showModal('cs106Modal')">CS 106: Database Systems</button>
-  </div>
-</div>
+    <!--The main content-->
+    <div id="mainContent">
+      <div class="buttons-row">
+          <button onclick="showModal('cs101Modal')">CS 101: Introduction to Computer Science</button>
+          <button onclick="showModal('cs102Modal')">CS 102: Data Structures</button>
+          <button onclick="showModal('cs103Modal')">CS 103: Algorithms</button>
+          <button onclick="showModal('cs104Modal')">CS 104: Computer Architecture</button>
+          <button onclick="showModal('cs105Modal')">CS 105: Operating Systems</button>
+          <button onclick="showModal('cs106Modal')">CS 106: Database Systems</button>
+      </div>
+    </div>
 
-<!-- Modals for each class -->
-<div id="cs101Modal" class="modal">
-  <div class="modalContent">
-      <span class="closeBtn" onclick="hideModal('cs101Modal')">&times;</span>
-      <h3>CS 101: Introduction to Computer Science</h3>
-      <p>This course provides an overview of computer science principles...</p>
-      <h4>Professor Rankings:</h4>
-      <ul>
-          <li><a href="professor1.html" target="_blank">Professor Jane Doe - Rank #1</a></li>
-          <li><a href="professor2.html" target="_blank">Professor John Smith - Rank #2</a></li>
-          <!-- Add more professors as needed -->
-      </ul>
-  </div>
-</div>
+    <!-- Modals for each class -->
+    <div id="cs101Modal" class="modal">
+      <div class="modalContent">
+          <span class="closeBtn" onclick="hideModal('cs101Modal')">&times;</span>
+          <h3>CS 101: Introduction to Computer Science</h3>
+          <p>This course provides an overview of computer science principles...</p>
+          <h4>Professor Rankings:</h4>
+          <ul>
+              <li><a href="professor1.html" target="_blank">Professor Jane Doe - Rank #1</a></li>
+              <li><a href="professor2.html" target="_blank">Professor John Smith - Rank #2</a></li>
+              <!-- Add more professors as needed -->
+          </ul>
+      </div>
+    </div>
 
 
-<div id="cs102Modal" class="modal">
-  <div class="modalContent">
-      <span class="closeBtn" onclick="hideModal('cs102Modal')">&times;</span>
-      <h3>CS 102: Data Structures</h3>
-      <p>This course dives into data structures and their implementation...</p>
-      <h4>Professor Rankings:</h4>
-      <ul>
-          <li><a href="professor4.html" target="_blank">Professor David Kim - Rank #1</a></li>
-          <li><a href="professor2.html" target="_blank">Professor John Smith - Rank #2</a></li>
-          <!-- Add more professors as needed -->
-      </ul>
-  </div>
-</div>
+    <div id="cs102Modal" class="modal">
+      <div class="modalContent">
+          <span class="closeBtn" onclick="hideModal('cs102Modal')">&times;</span>
+          <h3>CS 102: Data Structures</h3>
+          <p>This course dives into data structures and their implementation...</p>
+          <h4>Professor Rankings:</h4>
+          <ul>
+              <li><a href="professor4.html" target="_blank">Professor David Kim - Rank #1</a></li>
+              <li><a href="professor2.html" target="_blank">Professor John Smith - Rank #2</a></li>
+              <!-- Add more professors as needed -->
+          </ul>
+      </div>
+    </div>
 
-<div id="cs103Modal" class="modal">
-  <div class="modalContent">
-      <span class="closeBtn" onclick="hideModal('cs103Modal')">&times;</span>
-      <h3>CS 103: Algorithms</h3>
-      <p>Learn about the fundamental algorithms used in computer science...</p>
-      <h4>Professor Rankings:</h4>
-      <ul>
-          <li><a href="professor1.html" target="_blank">Professor Jane Doe - Rank #1</a></li>
-          <li><a href="professor2.html" target="_blank">Professor John Smith - Rank #2</a></li>
-          <!-- Add more professors as needed -->
-      </ul>
-  </div>
-</div>
+    <div id="cs103Modal" class="modal">
+      <div class="modalContent">
+          <span class="closeBtn" onclick="hideModal('cs103Modal')">&times;</span>
+          <h3>CS 103: Algorithms</h3>
+          <p>Learn about the fundamental algorithms used in computer science...</p>
+          <h4>Professor Rankings:</h4>
+          <ul>
+              <li><a href="professor1.html" target="_blank">Professor Jane Doe - Rank #1</a></li>
+              <li><a href="professor2.html" target="_blank">Professor John Smith - Rank #2</a></li>
+              <!-- Add more professors as needed -->
+          </ul>
+      </div>
+    </div>
 
-<div id="cs104Modal" class="modal">
-  <div class="modalContent">
-      <span class="closeBtn" onclick="hideModal('cs104Modal')">&times;</span>
-      <h3>CS 104: Computer Architecture</h3>
-      <p>An introduction to the structure and components of computer systems...</p>
-      <h4>Professor Rankings:</h4>
-      <ul>
-          <li><a href="professor1.html" target="_blank">Professor Jane Doe - Rank #1</a></li>
-          <li><a href="professor2.html" target="_blank">Professor John Smith - Rank #2</a></li>
-          <!-- Add more professors as needed -->
-      </ul>
-  </div>
-</div>
+    <div id="cs104Modal" class="modal">
+      <div class="modalContent">
+          <span class="closeBtn" onclick="hideModal('cs104Modal')">&times;</span>
+          <h3>CS 104: Computer Architecture</h3>
+          <p>An introduction to the structure and components of computer systems...</p>
+          <h4>Professor Rankings:</h4>
+          <ul>
+              <li><a href="professor1.html" target="_blank">Professor Jane Doe - Rank #1</a></li>
+              <li><a href="professor2.html" target="_blank">Professor John Smith - Rank #2</a></li>
+              <!-- Add more professors as needed -->
+          </ul>
+      </div>
+    </div>
 
-<div id="cs105Modal" class="modal">
-  <div class="modalContent">
-      <span class="closeBtn" onclick="hideModal('cs105Modal')">&times;</span>
-      <h3>CS 105: Operating Systems</h3>
-      <p>Explore the design and functionality of operating systems...</p>
-      <h4>Professor Rankings:</h4>
-      <ul>
-          <li><a href="professor1.html" target="_blank">Professor Jane Doe - Rank #1</a></li>
-          <li><a href="professor5.html" target="_blank">Professor Emily Wright - Rank #2</a></li>
-          <!-- Add more professors as needed -->
-      </ul>
-  </div>
-</div>
+    <div id="cs105Modal" class="modal">
+      <div class="modalContent">
+          <span class="closeBtn" onclick="hideModal('cs105Modal')">&times;</span>
+          <h3>CS 105: Operating Systems</h3>
+          <p>Explore the design and functionality of operating systems...</p>
+          <h4>Professor Rankings:</h4>
+          <ul>
+              <li><a href="professor1.html" target="_blank">Professor Jane Doe - Rank #1</a></li>
+              <li><a href="professor5.html" target="_blank">Professor Emily Wright - Rank #2</a></li>
+              <!-- Add more professors as needed -->
+          </ul>
+      </div>
+    </div>
 
-<div id="cs106Modal" class="modal">
-  <div class="modalContent">
-      <span class="closeBtn" onclick="hideModal('cs106Modal')">&times;</span>
-      <h3>CS 106: Database Systems</h3>
-      <p>Covers the principles of database systems design and management...</p>
-      <h4>Professor Rankings:</h4>
-      <ul>
-          <li><a href="professor3.html" target="_blank">Professor Clara Lee - Rank #1</a></li>
-          <li><a href="professor2.html" target="_blank">Professor John Smith - Rank #2</a></li>
-          <!-- Add more professors as needed -->
-      </ul>
-  </div>
-</div>
+    <div id="cs106Modal" class="modal">
+      <div class="modalContent">
+          <span class="closeBtn" onclick="hideModal('cs106Modal')">&times;</span>
+          <h3>CS 106: Database Systems</h3>
+          <p>Covers the principles of database systems design and management...</p>
+          <h4>Professor Rankings:</h4>
+          <ul>
+              <li><a href="professor3.html" target="_blank">Professor Clara Lee - Rank #1</a></li>
+              <li><a href="professor2.html" target="_blank">Professor John Smith - Rank #2</a></li>
+              <!-- Add more professors as needed -->
+          </ul>
+      </div>
+    </div>
 
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        // Slide-in effect for page load
-        document.body.classList.add('slide-in');
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Slide-in effect for page load
+            document.body.classList.add('slide-in');
 
-        // Add slide-out transition for navigation links
-        document.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', function(event) {
-                if (this.href) {
-                    event.preventDefault();
-                    var destination = this.href;
+            // Add slide-out transition for navigation links
+            document.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', function(event) {
+                    if (this.href) {
+                        event.preventDefault();
+                        var destination = this.href;
 
-                    document.body.classList.add('slide-out');
+                        document.body.classList.add('slide-out');
 
-                    setTimeout(function() {
-                        window.location.href = destination;
-                    }, 500); // Duration should match your CSS animation
-                }
+                        setTimeout(function() {
+                            window.location.href = destination;
+                        }, 500); // Duration should match your CSS animation
+                    }
+                });
             });
         });
-    });
-</script>
+    </script>
 
   </body>
 </html>
