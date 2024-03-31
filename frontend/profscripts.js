@@ -272,4 +272,44 @@ function createLoadingModal() {
   return modal;
 }
 
+function getProfRecs() {
+    // Initialize an object to store input values
+  var inputValues = {"class_code": "", "ratings": {}};
 
+  var classCodeInput = document.querySelectorAll('input[type="text"]');
+  classCodeInput.forEach(function(input) {
+    inputValues["class_code"] = input.value;
+  });
+
+  // Get the input elements by id or class
+  var ratingInputs = document.querySelectorAll('input[type="range"]');
+
+  // Loop through the input elements and store their values
+  ratingInputs.forEach(function(input) {
+    inputValues["ratings"][input.name] = input.value;
+  });
+
+  // Print the input values to the console
+  console.log("Input values:", inputValues);
+
+  var jsonData = JSON.stringify(inputValues);
+  fetch('http://localhost:5000/submit', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: jsonData
+  })
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    return response.text();
+  })
+  .then(data => {
+    console.log('Form submission successful:', data);
+  })
+  .catch(error => {
+    console.error('There was a problem with the form submission:', error);
+  });
+}

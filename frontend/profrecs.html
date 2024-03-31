@@ -37,58 +37,62 @@
         <form id="surveyForm">
           <div class="survey-question">
             <label for="question1">How good are you at going to lectures?</label>
-            <input type="range" id="question1" name="question1" min="1" max="10">
+            <input type="range" id="question1" name="lecture_frequency" min="1" max="10">
             <!--<span id="question1-value">5</span> / 10 --> <span id="question1-annotation"></span>
         
           </div>
           <br>
           <div class="survey-question">
             <label for="question2">How important are lectures to your learning experience?</label>
-            <input type="range" id="question2" name="question2" min="1" max="10">
+            <input type="range" id="question2" name="lecture_importance" min="1" max="10">
             <!--<span id="question2-value">5</span> / 10--> <span id="question2-annotation"></span>
           </div><br>
 
           <div class="survey-question">
             <label for="question3">How good are you at exams?</label>
-            <input type="range" id="question3" name="question3" min="1" max="10">
+            <input type="range" id="question3" name="exam_ability" min="1" max="10">
             <!--<span id="question1-value">5</span> / 10 --> <span id="question3-annotation"></span>
         
           </div>
           <br>
           <div class="survey-question">
             <label for="question4">How many questions do you like to ask in class?</label>
-            <input type="range" id="question4" name="question4" min="1" max="10">
+            <input type="range" id="question4" name="in_class_question_frequency" min="1" max="10">
             <!--<span id="question2-value">5</span> / 10--> <span id="question4-annotation"></span>
           </div><br>
 
           <div class="survey-question">
             <label for="question5">How important are in-class question answers to you?</label>
-            <input type="range" id="question5" name="question5" min="1" max="10">
+            <input type="range" id="question5" name="in_class_question_importance" min="1" max="10">
             <!--<span id="question1-value">5</span> / 10 --> <span id="question5-annotation"></span>
         
           </div>
           <br>
           <div class="survey-question">
             <label for="question6">How many questions do you like to ask in emails and/or forums?</label>
-            <input type="range" id="question6" name="question6" min="1" max="10">
+            <input type="range" id="question6" name="forum_question_frequency" min="1" max="10">
             <!--<span id="question2-value">5</span> / 10--> <span id="question6-annotation"></span>
           </div><br>
 
           <div class="survey-question">
             <label for="question7">How many important are good question answers on forums to you?</label>
-            <input type="range" id="question7" name="question7" min="1" max="10">
+            <input type="range" id="question7" name="forum_question_weight" min="1" max="10">
             <!--<span id="question1-value">5</span> / 10 --> <span id="question7-annotation"></span>
         
           </div>
           <br>
           <div class="survey-question">
             <label for="question8">How good are you at dealing with homework workload?</label>
-            <input type="range" id="question8" name="question8" min="1" max="10">
+            <input type="range" id="question8" name="workload_handling_ability" min="1" max="10">
             <!--<span id="question2-value">5</span> / 10--> <span id="question8-annotation"></span>
           </div><br>
+         
+          <div class="survey-question">
+              <label for="class_code">What class would you like professor recommendations for?</label>
+              <input type="text" id="class_code" name="class_code">
+          </div><br>
           
-          
-          <button type="submit">Find your Professors</button>
+          <button type="submit" onclick="getProfRecs();">Find your Professors</button>
           <br><br>
         </form>
           
