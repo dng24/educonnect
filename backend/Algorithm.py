@@ -21,7 +21,7 @@ def get_compatibility(output_string, user_inputs):
     #forum questions
     compatibility_score += (abs(int(user_inputs['forum_question_frequency']) - llm_outputs['forum_question_quality'])
                             * 0.02 * int(user_inputs['forum_question_weight']))
-    return output_list[0], 100 - compatibility_score/5
+    return (output_list[0], 100 - compatibility_score/5, output_list[6], output_list[7])
 
 if __name__ == "__main__":
     print(get_compatibility(example, user_inputs))
