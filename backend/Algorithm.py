@@ -1,4 +1,4 @@
-example = 'Leena Razzaq / 50 / 50 / 50 / 50 / 50'
+example = 'Leena Razzaq / 50 / 50 / 50 / 50 / 50 / Professor razzaq is good at answering piazza questions / professor razzaq is not a good lecturer'
 user_inputs = {'lecture_frequency':50, 'lecture_importance':100, 'workload_handling_ability':50,
                'exam_ability':50, 'in_class_question_frequency':50, 'in_class_question_importance':50,
                'forum_question_frequency':50, 'forum_question_weight':50}
