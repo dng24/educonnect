@@ -28,17 +28,17 @@ def get_professor_names(class_code):
     #driver.request_interceptor = interceptor
     driver.get('https://nubanner.neu.edu/StudentRegistrationSsb/ssb/term/termSelection?mode=search') #Go to Banner
     WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, 'select2-chosen-1'))).click() #Click on the dropdown
-    sleep(1)
+    sleep(2)
     term_search = (driver.find_element(By.XPATH, '//input[@type="text"][@sanitize="true"]')) #click on search box for semester
     term_search.send_keys('Spring 2024 Semester') #type in semester search term
-    sleep(1.5)
+    sleep(2)
     term_search.send_keys(Keys.TAB) #Enter the Search Term
     driver.find_element(By.ID, 'term-go').click() #Click on the search button for the semester
     #sleep(100)
     subject_box = (WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, '//input[@type="text"][@sanitize="true"]')))) #Click on subject box
     subjects = {'cs':'Computer Science', 'ds':'Data Science', 'cy':'Cybersecurity'}
     subject_box.send_keys(subjects[class_code[0:2].lower()]) #Enter the appropriate subject based on the course code
-    sleep(1.5)
+    sleep(2)
     subject_box.send_keys(Keys.ENTER)
     course_number = driver.find_element(By.ID, 'txt_courseNumber') #Find the box for the course number
     course_number.send_keys(class_code[2:]) #Enter the code
@@ -47,7 +47,7 @@ def get_professor_names(class_code):
     names = set()
     while True:
         name_elements = []
-        sleep(1)
+        sleep(2)
         name_elements = (WebDriverWait(driver, 30).until(EC.visibility_of_all_elements_located((By.XPATH, '//a[@class="email"]'))))
         print(len(name_elements))
         for element in name_elements:

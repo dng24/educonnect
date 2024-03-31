@@ -29,13 +29,14 @@ def submit():
     # step 3: get professor ratings for each category based on rate my professor
     prof_ratings = []
     for prof_info in rate_my_prof_info:
-        prof_ratings.append(llm.process_single_row(prof_info[0], prof_info[1]))
+        if prof_info[0] != "Professor_Column":
+            prof_ratings.append(llm.process_single_row(prof_info[0], prof_info[1]))
 
     # step 4: determine final compatibility score for each prof
     prof_compatibility = {}
     for rating in prof_ratings:
         compatibility = Algorithm.get_compatibility(rating, inputs["ratings"])
-        prof_compatibility[compatibility[0]] = compatibility[1]
+        prof_compatibility[compatibility[0]] = (compatibility[1], compatibility[2], compatibility[3])
     
     print(rate_my_prof_info)
     resp = jsonify(prof_compatibility)
