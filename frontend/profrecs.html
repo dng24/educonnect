@@ -16,7 +16,7 @@
     </script>
   </head>
 
-  <body>
+  <body onresize="resizeWindow();">
     <!--Top Bar-->
     <div id="topBar">
         <span onmouseover="hovIcon();" onmouseout="unHovIcon();" onclick="clickIcon();"><a href="landing.html"><img id="homeIcon" src="homeIcon.png"></a></span>
@@ -35,8 +35,8 @@
         
         <form id="surveyForm">
           <div class="survey-question">
-            <label for="question1"><p>How good are you at going to lectures?</p></label>
-            <input type="range" id="question1" name="question1" min="1" max="10">
+            <label for="question1">How good are you at going to lectures?</label>
+            <input type="range" id="question1" name="lecture_frequency" min="1" max="10">
             <!--<span id="question1-value">5</span> / 10 --> <span id="question1-annotation"></span>
         
           </div>
@@ -49,8 +49,8 @@
           </div>
           <br>
           <div class="survey-question">
-            <label for="question2"><p>How important are lectures to your learning experience?</p></label>
-            <input type="range" id="question2" name="question2" min="1" max="10">
+            <label for="question2">How important are lectures to your learning experience?</label>
+            <input type="range" id="question2" name="lecture_importance" min="1" max="10">
             <!--<span id="question2-value">5</span> / 10--> <span id="question2-annotation"></span>
           </div><br>
           <!-- Add text boxes -->
@@ -61,8 +61,8 @@
           </div><br>
 
           <div class="survey-question">
-            <label for="question3"><p>How good are you at exams?</p></label>
-            <input type="range" id="question3" name="question3" min="1" max="10">
+            <label for="question3">How good are you at exams?</label>
+            <input type="range" id="question3" name="exam_ability" min="1" max="10">
             <!--<span id="question1-value">5</span> / 10 --> <span id="question3-annotation"></span>
         
           </div>
@@ -74,8 +74,8 @@
               <input type="text" id="textbox3" name="textbox3">
           </div><br>
           <div class="survey-question">
-            <label for="question4"><p>How many questions do you like to ask in class?</p></label>
-            <input type="range" id="question4" name="question4" min="1" max="10">
+            <label for="question4">How many questions do you like to ask in class?</label>
+            <input type="range" id="question4" name="in_class_question_frequency" min="1" max="10">
             <!--<span id="question2-value">5</span> / 10--> <span id="question4-annotation"></span>
           </div><br>
           <div class="text-boxes">
@@ -85,8 +85,8 @@
             </div><br>
 
           <div class="survey-question">
-            <label for="question5"><p>How important are in-class question answers to you?</p></label>
-            <input type="range" id="question5" name="question5" min="1" max="10">
+            <label for="question5">How important are in-class question answers to you?</label>
+            <input type="range" id="question5" name="in_class_question_importance" min="1" max="10">
             <!--<span id="question1-value">5</span> / 10 --> <span id="question5-annotation"></span>
         
           </div>
@@ -98,8 +98,8 @@
               <input type="text" id="textbox5" name="textbox5">
           </div> <br>
           <div class="survey-question">
-            <label for="question6"><p>How many questions do you like to ask in emails and/or forums?</p></label>
-            <input type="range" id="question6" name="question6" min="1" max="10">
+            <label for="question6">How many questions do you like to ask in emails and/or forums?</label>
+            <input type="range" id="question6" name="forum_question_frequency" min="1" max="10">
             <!--<span id="question2-value">5</span> / 10--> <span id="question6-annotation"></span>
           </div><br>
           <div class="text-boxes">
@@ -109,8 +109,8 @@
             </div> <br>
 
           <div class="survey-question">
-            <label for="question7"><p>How many important are good question answers on forums to you?</p></label>
-            <input type="range" id="question7" name="question7" min="1" max="10">
+            <label for="question7">How many important are good question answers on forums to you?</label>
+            <input type="range" id="question7" name="forum_question_weight" min="1" max="10">
             <!--<span id="question1-value">5</span> / 10 --> <span id="question7-annotation"></span>
         
           </div>
@@ -122,8 +122,9 @@
               <input type="text" id="textbox7" name="textbox7">
           </div> <br>
           <div class="survey-question">
+
             <label for="question8"><p>How good are you at dealing with homework workload?</p></label>
-            <input type="range" id="question8" name="question8" min="1" max="10">
+            <input type="range" id="question8" name="workload_handling_ability" min="1" max="10">
             <!--<span id="question2-value">5</span> / 10--> <span id="question8-annotation"></span>
           </div><br>
           <!-- Add text boxes -->
@@ -132,14 +133,16 @@
               <label for="textbox8">Explain:</label><br>
               <input type="text" id="textbox8" name="textbox8">
           </div><br>
-          <div class="text-boxes">
-            <div class="text-box">
-                <label for="textbox9">Class:</label><br>
-                <input type="text" id="textbox9" name="textbox9">
-            </div><br>
+
+          <div class="survey-question">
+            <label for="class_code">What class would you like professor recommendations for?</label>
+            <input type="text" id="class_code" name="class_code">
+          </div><br>
           
-          
-          <button type="submit">Find your Professors</button>
+          <div id="surveyButton">
+            <button type="submit" onclick="getProfRecs();">Find your Professors</button>
+            <img src="loading.gif" alt="Loading..." style="width: 100px; height: auto; margin: auto;">
+          </div>
           <br><br>
         </form>
           
@@ -162,126 +165,126 @@
       <br>
     </div>
 
-<!--The main content-->
-<div id="mainContent">
-  <div class="buttons-row">
-      <button onclick="showModal('cs101Modal')">CS 101: Introduction to Computer Science</button>
-      <button onclick="showModal('cs102Modal')">CS 102: Data Structures</button>
-      <button onclick="showModal('cs103Modal')">CS 103: Algorithms</button>
-      <button onclick="showModal('cs104Modal')">CS 104: Computer Architecture</button>
-      <button onclick="showModal('cs105Modal')">CS 105: Operating Systems</button>
-      <button onclick="showModal('cs106Modal')">CS 106: Database Systems</button>
-  </div>
-</div>
+    <!--The main content-->
+    <div id="mainContent">
+      <div class="buttons-row">
+          <button onclick="showModal('cs101Modal')">CS 101: Introduction to Computer Science</button>
+          <button onclick="showModal('cs102Modal')">CS 102: Data Structures</button>
+          <button onclick="showModal('cs103Modal')">CS 103: Algorithms</button>
+          <button onclick="showModal('cs104Modal')">CS 104: Computer Architecture</button>
+          <button onclick="showModal('cs105Modal')">CS 105: Operating Systems</button>
+          <button onclick="showModal('cs106Modal')">CS 106: Database Systems</button>
+      </div>
+    </div>
 
-<!-- Modals for each class -->
-<div id="cs101Modal" class="modal">
-  <div class="modalContent">
-      <span class="closeBtn" onclick="hideModal('cs101Modal')">&times;</span>
-      <h3>CS 101: Introduction to Computer Science</h3>
-      <p>This course provides an overview of computer science principles...</p>
-      <h4>Professor Rankings:</h4>
-      <ul>
-          <li><a href="professor1.html" target="_blank">Professor Jane Doe - Rank #1</a></li>
-          <li><a href="professor2.html" target="_blank">Professor John Smith - Rank #2</a></li>
-          <!-- Add more professors as needed -->
-      </ul>
-  </div>
-</div>
+    <!-- Modals for each class -->
+    <div id="cs101Modal" class="modal">
+      <div class="modalContent">
+          <span class="closeBtn" onclick="hideModal('cs101Modal')">&times;</span>
+          <h3>CS 101: Introduction to Computer Science</h3>
+          <p>This course provides an overview of computer science principles...</p>
+          <h4>Professor Rankings:</h4>
+          <ul>
+              <li><a href="professor1.html" target="_blank">Professor Jane Doe - Rank #1</a></li>
+              <li><a href="professor2.html" target="_blank">Professor John Smith - Rank #2</a></li>
+              <!-- Add more professors as needed -->
+          </ul>
+      </div>
+    </div>
 
 
-<div id="cs102Modal" class="modal">
-  <div class="modalContent">
-      <span class="closeBtn" onclick="hideModal('cs102Modal')">&times;</span>
-      <h3>CS 102: Data Structures</h3>
-      <p>This course dives into data structures and their implementation...</p>
-      <h4>Professor Rankings:</h4>
-      <ul>
-          <li><a href="professor4.html" target="_blank">Professor David Kim - Rank #1</a></li>
-          <li><a href="professor2.html" target="_blank">Professor John Smith - Rank #2</a></li>
-          <!-- Add more professors as needed -->
-      </ul>
-  </div>
-</div>
+    <div id="cs102Modal" class="modal">
+      <div class="modalContent">
+          <span class="closeBtn" onclick="hideModal('cs102Modal')">&times;</span>
+          <h3>CS 102: Data Structures</h3>
+          <p>This course dives into data structures and their implementation...</p>
+          <h4>Professor Rankings:</h4>
+          <ul>
+              <li><a href="professor4.html" target="_blank">Professor David Kim - Rank #1</a></li>
+              <li><a href="professor2.html" target="_blank">Professor John Smith - Rank #2</a></li>
+              <!-- Add more professors as needed -->
+          </ul>
+      </div>
+    </div>
 
-<div id="cs103Modal" class="modal">
-  <div class="modalContent">
-      <span class="closeBtn" onclick="hideModal('cs103Modal')">&times;</span>
-      <h3>CS 103: Algorithms</h3>
-      <p>Learn about the fundamental algorithms used in computer science...</p>
-      <h4>Professor Rankings:</h4>
-      <ul>
-          <li><a href="professor1.html" target="_blank">Professor Jane Doe - Rank #1</a></li>
-          <li><a href="professor2.html" target="_blank">Professor John Smith - Rank #2</a></li>
-          <!-- Add more professors as needed -->
-      </ul>
-  </div>
-</div>
+    <div id="cs103Modal" class="modal">
+      <div class="modalContent">
+          <span class="closeBtn" onclick="hideModal('cs103Modal')">&times;</span>
+          <h3>CS 103: Algorithms</h3>
+          <p>Learn about the fundamental algorithms used in computer science...</p>
+          <h4>Professor Rankings:</h4>
+          <ul>
+              <li><a href="professor1.html" target="_blank">Professor Jane Doe - Rank #1</a></li>
+              <li><a href="professor2.html" target="_blank">Professor John Smith - Rank #2</a></li>
+              <!-- Add more professors as needed -->
+          </ul>
+      </div>
+    </div>
 
-<div id="cs104Modal" class="modal">
-  <div class="modalContent">
-      <span class="closeBtn" onclick="hideModal('cs104Modal')">&times;</span>
-      <h3>CS 104: Computer Architecture</h3>
-      <p>An introduction to the structure and components of computer systems...</p>
-      <h4>Professor Rankings:</h4>
-      <ul>
-          <li><a href="professor1.html" target="_blank">Professor Jane Doe - Rank #1</a></li>
-          <li><a href="professor2.html" target="_blank">Professor John Smith - Rank #2</a></li>
-          <!-- Add more professors as needed -->
-      </ul>
-  </div>
-</div>
+    <div id="cs104Modal" class="modal">
+      <div class="modalContent">
+          <span class="closeBtn" onclick="hideModal('cs104Modal')">&times;</span>
+          <h3>CS 104: Computer Architecture</h3>
+          <p>An introduction to the structure and components of computer systems...</p>
+          <h4>Professor Rankings:</h4>
+          <ul>
+              <li><a href="professor1.html" target="_blank">Professor Jane Doe - Rank #1</a></li>
+              <li><a href="professor2.html" target="_blank">Professor John Smith - Rank #2</a></li>
+              <!-- Add more professors as needed -->
+          </ul>
+      </div>
+    </div>
 
-<div id="cs105Modal" class="modal">
-  <div class="modalContent">
-      <span class="closeBtn" onclick="hideModal('cs105Modal')">&times;</span>
-      <h3>CS 105: Operating Systems</h3>
-      <p>Explore the design and functionality of operating systems...</p>
-      <h4>Professor Rankings:</h4>
-      <ul>
-          <li><a href="professor1.html" target="_blank">Professor Jane Doe - Rank #1</a></li>
-          <li><a href="professor5.html" target="_blank">Professor Emily Wright - Rank #2</a></li>
-          <!-- Add more professors as needed -->
-      </ul>
-  </div>
-</div>
+    <div id="cs105Modal" class="modal">
+      <div class="modalContent">
+          <span class="closeBtn" onclick="hideModal('cs105Modal')">&times;</span>
+          <h3>CS 105: Operating Systems</h3>
+          <p>Explore the design and functionality of operating systems...</p>
+          <h4>Professor Rankings:</h4>
+          <ul>
+              <li><a href="professor1.html" target="_blank">Professor Jane Doe - Rank #1</a></li>
+              <li><a href="professor5.html" target="_blank">Professor Emily Wright - Rank #2</a></li>
+              <!-- Add more professors as needed -->
+          </ul>
+      </div>
+    </div>
 
-<div id="cs106Modal" class="modal">
-  <div class="modalContent">
-      <span class="closeBtn" onclick="hideModal('cs106Modal')">&times;</span>
-      <h3>CS 106: Database Systems</h3>
-      <p>Covers the principles of database systems design and management...</p>
-      <h4>Professor Rankings:</h4>
-      <ul>
-          <li><a href="professor3.html" target="_blank">Professor Clara Lee - Rank #1</a></li>
-          <li><a href="professor2.html" target="_blank">Professor John Smith - Rank #2</a></li>
-          <!-- Add more professors as needed -->
-      </ul>
-  </div>
-</div>
+    <div id="cs106Modal" class="modal">
+      <div class="modalContent">
+          <span class="closeBtn" onclick="hideModal('cs106Modal')">&times;</span>
+          <h3>CS 106: Database Systems</h3>
+          <p>Covers the principles of database systems design and management...</p>
+          <h4>Professor Rankings:</h4>
+          <ul>
+              <li><a href="professor3.html" target="_blank">Professor Clara Lee - Rank #1</a></li>
+              <li><a href="professor2.html" target="_blank">Professor John Smith - Rank #2</a></li>
+              <!-- Add more professors as needed -->
+          </ul>
+      </div>
+    </div>
 
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        // Slide-in effect for page load
-        document.body.classList.add('slide-in');
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Slide-in effect for page load
+            document.body.classList.add('slide-in');
 
-        // Add slide-out transition for navigation links
-        document.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', function(event) {
-                if (this.href) {
-                    event.preventDefault();
-                    var destination = this.href;
+            // Add slide-out transition for navigation links
+            document.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', function(event) {
+                    if (this.href) {
+                        event.preventDefault();
+                        var destination = this.href;
 
-                    document.body.classList.add('slide-out');
+                        document.body.classList.add('slide-out');
 
-                    setTimeout(function() {
-                        window.location.href = destination;
-                    }, 500); // Duration should match your CSS animation
-                }
+                        setTimeout(function() {
+                            window.location.href = destination;
+                        }, 500); // Duration should match your CSS animation
+                    }
+                });
             });
         });
-    });
-</script>
+    </script>
 
   </body>
 </html>

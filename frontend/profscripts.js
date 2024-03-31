@@ -1,63 +1,76 @@
-//composers
-var composers = ["Bach", "Beethoven", "Chopin", "Clementi", "Debussy", "DennÃ©e", "Durand", "Grieg", "Haydn", "Ibert", "Lecuona", "Mozart", "Reinhold", "Schubert", "Schumann", "Strauss", "Waldteufel"];
-
-/*
-//Creates the items in the nav bar
-function generateNavBar() {
-  composers.forEach(function(composer) {
-    var ul = document.getElementById("nav");
-    var li = document.createElement("li");
-    var a = document.createElement("a");
-    var text = document.createTextNode(composer);
-    a.setAttribute("href", composer.toLowerCase() + ".html");
-    a.appendChild(text);
-    li.appendChild(a);
-    ul.appendChild(li);
-  })
-}
-*/
-
-var vidID = []; //array of iframe ids
-//Loads Youtube's APIs after this JS document receives array of iframe ids
-function videoID(id) {
-  vidID = id;
-  var tag = document.createElement('script');
-  tag.src = "https://www.youtube.com/iframe_api";
-  var firstScriptTag = document.getElementsByTagName('script')[0];
-  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-}
-
-var player = []; //array of players, one for each video
-//Executes when Youtubes's APIs are loaded, creates a player for each iframe id
-function onYouTubeIframeAPIReady() {
-  var len = vidID.length;
-  for(var i = 0; i<len; i++) {
-    player[i] = new YT.Player(vidID[i]);
-  }
-}
-
-//Stops all the videos
-function stopVid() {
-  var len = player.length;
-  for(var i = 0; i<len; i++) {
-    player[i].stopVideo();
-  }
-}
-
 //Shows the pop up box with the information for each piece
 function showModal(piece) {
   //cannot set video height while display is none bc the width is "60%", so
   //not a real number yet that can be multiplied and divided
   document.getElementById(piece).style.display = "inline-block";
   document.getElementsByTagName("body")[0].style.overflow = "hidden";
-  setVidHeight();
 }
 
 //Hides the pop up box with the information for each piece and stops any videos that areplaying
 function hideModal(piece){
   document.getElementById(piece).style.display = "none";
   document.getElementsByTagName("body")[0].style.overflow = "scroll";
-  stopVid();
+}
+
+function createModal(class_code, results) {
+    console.log("CREATE MODAL");
+    // Create the modal container div
+    var modalContainer = document.createElement('div');
+    modalContainer.id = class_code + 'Modal';
+    modalContainer.className = 'modal';
+
+    // Create the modal content div
+    var modalContent = document.createElement('div');
+    modalContent.className = 'modalContent';
+
+    // Create the close button span
+    var closeButton = document.createElement('span');
+    closeButton.className = 'closeBtn';
+    closeButton.innerHTML = '&times;';
+    closeButton.onclick = function() {
+      hideModal(class_code + 'Modal');
+    };
+
+    // Create the heading elements
+    var heading1 = document.createElement('h3');
+    heading1.textContent = class_code;
+
+    var heading2 = document.createElement('h4');
+    heading2.textContent = 'Professor Rankings:';
+
+    // Create the list element
+    var list = document.createElement('ul');
+
+    console.log(results);
+    // Create list items
+    var i = 1;
+    for (var key in results) {
+        var listItem = document.createElement('li');
+        listItem.textContent = "Professor " + key + ' - Rank #' + i;
+        list.appendChild(listItem);
+    }
+
+    // Append elements to the modal content div
+    modalContent.appendChild(closeButton);
+    modalContent.appendChild(heading1);
+    modalContent.appendChild(heading2);
+    modalContent.appendChild(list);
+
+    // Append the modal content div to the modal container div
+    modalContainer.appendChild(modalContent);
+
+    // Append the modal container div to the body
+    document.body.appendChild(modalContainer);
+
+    //--------------------
+    var button = document.createElement("button");
+    button.textContent = class_code;
+    button.onclick = function() {
+        showModal(class_code + "Modal");
+    };
+
+    var buttonsRow = document.querySelector(".buttons-row");
+    buttonsRow.appendChild(button);
 }
 
 //Code to make the website look nice when the window is resized
@@ -75,19 +88,6 @@ function resizeWindow(){
     } else {
       document.getElementsByTagName("nav")[0].style.width = "500px";
     }
-  }
-}
-
-//changes the video height when the window is resized, i.e. the width changes
-function setVidHeight() {
-  var vids = document.getElementsByTagName("IFRAME");
-  //calculates height for every video on page bc event listener is on body tag,
-  //so don't know how to specify specific video
-  var len = vids.length;
-  for(var i = 0; i<len; i++) {
-    var width = vids[i].offsetWidth; // [video].style.width doesn't seem to work
-    var height = (width - width/7) * 9/16; //offsetWidth is different from width
-    vids[i].height = height;
   }
 }
 
@@ -109,6 +109,8 @@ function setMCWidths(navOpen) {
 
 //opens the nav bar
 function openNavBar() {
+  showSurveyButton();
+
   if(window.innerWidth<800) {
     document.getElementsByTagName("nav")[0].style.width = "100%";
   }
@@ -174,12 +176,12 @@ function updateSliderAnnotation(sliderId, annotationId) {
   var annotationText;
   
   // Define your annotation text based on the slider value
-  if(sliderValue <= 3) {
-    annotationText = "Doesn't Matter";
-  } else if(sliderValue <= 6) {
-    annotationText = "Definitely a Plus";
+  if (sliderValue <= 3) {
+    annotationText = sliderValue + ": Doesn't Matter";
+  } else if (sliderValue <= 6) {
+    annotationText = sliderValue + ": Definitely a Plus";
   } else {
-    annotationText = "Very Important";
+    annotationText = sliderValue + ": Very Important";
   }
   
   // Update the annotation text
@@ -233,46 +235,22 @@ function buildSchedule(preference) {
 // Ensure to call setupSliderAnnotations() when the document is ready or after the nav bar is generated
 document.addEventListener("DOMContentLoaded", setupSliderAnnotations);
 
-
-
-
-
 document.addEventListener("DOMContentLoaded", function() {
   const form = document.getElementById("surveyForm");
-  
   form.addEventListener("submit", function(event) {
     event.preventDefault(); // Prevent the form from submitting normally
-    
-    // Create and display the loading modal
-    const loadingModal = createLoadingModal();
-    document.body.appendChild(loadingModal);
-
-    // Simulate loading time then display content
-    setTimeout(function() {
-      // Replace loading GIF with pre-set data
-      loadingModal.innerHTML = `
-        <div class="modalContent">
-          <span class="closeBtn" onclick="this.parentElement.parentElement.remove();">&times;</span>
-          <h3>Results</h3>
-          <p>Here are your personalized results...</p>
-        
-        </div>
-      `;
-    }, 3000);
   });
 });
 
-function createLoadingModal() {
-  const modal = document.createElement("div");
-  modal.className = "modal";
-  modal.innerHTML = `
-    <div class="modalContent">
-      <img src="loading.gif" alt="Loading..." style="width: 100px; height: auto; display: block; margin: auto;">
-    </div>
-  `;
-  return modal;
+function showSurveyButton() {
+    var buttonDiv = document.getElementById("surveyButton");
+    var image = buttonDiv.querySelector("img");
+    var button = buttonDiv.querySelector("button");
+    image.style.display = "none";
+    button.style.display = "block";
 }
 
+//<<<<<<< HEAD
 // Add this function to your JavaScript file
 function toggleBouncingText() {
   var bouncingText = document.querySelector('.bouncing-text');
@@ -345,4 +323,59 @@ function showMainContentButton(className) {
   document.getElementById('mainContent').appendChild(mainContentButton);
 }
 
+//=======
+function hideSurveyButton() {
+    var buttonDiv = document.getElementById("surveyButton");
+    var button = buttonDiv.querySelector("button");
+    var image = buttonDiv.querySelector("img");
+    button.style.display = "none";
+    image.style.display = "block";
+}
+//>>>>>>> 080990173b8a7c15ffd4097207faec5cc94c3dfd
 
+function getProfRecs() {
+
+  hideSurveyButton();  
+
+  // Initialize an object to store input values
+  var inputValues = {"class_code": "", "ratings": {}};
+
+  var classCodeInput = document.querySelectorAll('input[type="text"]');
+  classCodeInput.forEach(function(input) {
+    inputValues["class_code"] = input.value;
+  });
+
+  // Get the input elements by id or class
+  var ratingInputs = document.querySelectorAll('input[type="range"]');
+
+  // Loop through the input elements and store their values
+  ratingInputs.forEach(function(input) {
+    inputValues["ratings"][input.name] = input.value;
+  });
+
+  // Print the input values to the console
+  console.log("Input values:", inputValues);
+
+  var jsonData = JSON.stringify(inputValues);
+  fetch('http://localhost:5000/submit', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: jsonData
+  })
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    return response.json();
+  })
+  .then(data => {
+    console.log('Form submission successful:', data);
+    closeNavBar();
+    createModal(classCodeInput[0].value, data);
+  })
+  .catch(error => {
+    console.error('There was a problem with the form submission:', error);
+  });
+}

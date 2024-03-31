@@ -50,7 +50,7 @@ html, body {
     font-size: 90%;
     position: fixed;
     top: 0;
-    width: 500px;
+    width: 0;
     height: 100%;
     background-color: black; /* Bright and fun color */
     color: white;
@@ -145,16 +145,15 @@ html, body {
   input[type="range"]:focus::-moz-range-thumb {
     background: #45a049; /* Darker green variant */
   }
-  
-  /*-----Titles-------*/
-  #homeTitle {
-    background-image: url("pianoTitle.JPG"); /*https://upload.wikimedia.org/wikipedia/commons/8/87/Steinway_grand_piano_strings_and_keys.JPG*/
-    height: 100%;
+
+  #surveyButton {
+    display: flex;
+    justify-content: center;
   }
   
+  /*-----Titles-------*/
   .compTitle {
       margin-top: 100px;
-     background-image: url("pianoBckgd.jpg");
      background-size: cover;
      background-attachment: fixed;
      width: 100%;
@@ -173,16 +172,6 @@ html, body {
     color: #5C6BC0;
     transition: 0.5s;
     font-size: 2.5em;
-  }
-  
-  #homeTitle h1 {
-    font-size: 3.5em;
-      padding: 20% 0% 25% 0%;
-    margin: 0;
-  }
-  
-  #arrow {
-    padding-top: 50px;
   }
   
   /*-----Main-Content--------------------------*/
