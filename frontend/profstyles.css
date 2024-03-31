@@ -59,6 +59,31 @@ html, body {
     box-shadow: 4px 0px 10px rgba(0,0,0,0.4);
   }
 
+
+  /* More specific rule for text boxes inside nav */
+nav .text-box input[type="text"] {
+  padding: 5px; /* Less padding compared to the default */
+  width: calc(100% - 45px); /* Smaller width if needed */
+  margin-top: 5px; /* Less top margin for alignment */
+  border-radius: 5px;
+}
+
+/* Adjust the overall spacing of the text-box containers inside nav */
+nav .text-box {
+  margin-top: 0px; /* Less space on top */
+  margin-bottom: 0px; /* Less space on the bottom if needed */
+  
+}
+
+/* Adjust label size inside nav if needed */
+nav .text-box label {
+  font-size: 0.8em; /* Smaller font size for labels */
+  padding: 5px 5px 0px 5px; /* Less padding on top of label */
+  margin-bottom: 0; /* No additional space below label */
+  margin-left: 10px;
+}
+
+
   /* Style for text boxes */
 .text-boxes {
   margin-top: 20px; /* Adjust spacing as needed */
@@ -75,6 +100,8 @@ html, body {
 .text-box input[type="text"] {
   width: calc(100% - 45px); /* Adjust the width as needed */
   /* Subtracting 100px to account for label width and spacing */
+  border-radius: 5px;
+
 }
   
   nav div {
@@ -109,14 +136,16 @@ html, body {
   }
   
   /*-----Nav-Bar--------------------------*/
+
+  
   input[type="range"] {
     width: 400px; /* Specific width can be set */
-    height: 8px; /* Height of the slider */
-    background: #ddd; /* Background color */
-    border-radius: 5px; /* Rounded corners */
-    outline: none; /* Removes the outline */
-    opacity: 0.7; /* Makes the slider slightly transparent */
-    -webkit-transition: .2s; /* Smooth transition */
+    height: 8px;
+    border-radius: 5px;
+    border-color: rgb(255, 255, 255);
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
     transition: opacity .2s;
   }
   
@@ -125,26 +154,26 @@ html, body {
     appearance: none;
     width: 20px; /* Width of the thumb */
     height: 20px; /* Height of the thumb */
-    background: #5C6BC0; /* Thumb background color */
+    background: transparent; /* Thumb background color */
     border-radius: 50%; /* Rounds the thumb */
     cursor: pointer; /* Cursor on hover */
   }
+
   
+  
+  /*
   input[type="range"]::-moz-range-thumb {
-    width: 20px; /* Width of the thumb */
-    height: 20px; /* Height of the thumb */
-    background: #3949Ab; /* Thumb background color */
-    border-radius: 50%; /* Rounds the thumb */
-    cursor: pointer; /* Cursor on hover */
+    width: 20px;
+    height: 20px; 
+    background: transparent;
+    border-radius: 50%;
+    cursor: pointer;
   }
+  */
+
   
-  input[type="range"]:focus::-webkit-slider-thumb {
-    background: #3949Ab; /* Darker green variant */
-  }
   
-  input[type="range"]:focus::-moz-range-thumb {
-    background: #45a049; /* Darker green variant */
-  }
+  
 
   #surveyButton {
     display: flex;
@@ -171,7 +200,7 @@ html, body {
     text-align: center;
     color: #5C6BC0;
     transition: 0.5s;
-    font-size: 2.5em;
+    font-size: 3em;
   }
   
   /*-----Main-Content--------------------------*/
@@ -418,7 +447,7 @@ html, body {
   display: block;
   
   color: gray;
-  margin: 0px 15px;
+  margin: 0px 15px -18px;
 }
 
 .top-left-logo {

@@ -6,7 +6,7 @@ body, html {
     align-items: center;
     text-align: center;
     font-family: 'Baloo Bhai 2', cursive; /* Fun and playful font */
-    background: linear-gradient(to right, #3949AB 0%, #5C6BC0 100%);
+    background: linear-gradient(to right, #3949AB 20%, #5C6BC0 80%);
     opacity: 1; /* Adjusted for correct opacity */
     transition: opacity 2.0s; /* Fade-in effect */
 }
@@ -145,17 +145,17 @@ body.slide-in {
 /* You should add this to styler.css */
 .top-left-logo {
     position: absolute;
-    top: 10px;
-    left: -725px;
-    width: 100px; /* You can adjust the size as needed */
-  }
+    top: 2%; /* Adjusted */
+    left: -50%; /* Adjusted */
+    width: 20%; /* Adjusted */
+}
 
   /* You should add this to styler.css */
 .top-left-logo2 {
     position: absolute;
-    top: 10px;
-    left: -620px;
-    width: 100px; /* You can adjust the size as needed */
+    top: 2%; /* Adjusted */
+    left: -18%; /* Adjusted */
+    width: 13%; /* Adjusted */
   }
   
 

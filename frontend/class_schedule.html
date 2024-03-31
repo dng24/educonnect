@@ -7,7 +7,7 @@
     <script src="profscripts.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="favicon.png" type="image/icon" sizes="16x16">
+    <link rel="icon" href="classIcon.png" type="image/icon" sizes="16x16">
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             document.body.classList.add('slide-in');
@@ -22,16 +22,17 @@
     <div id="topBar">
       <span onmouseover="hovIcon();" onmouseout="unHovIcon();" onclick="clickIcon();"><a href="landing.html"><img id="homeIcon" src="homeIcon.png"></a></span>
       <span>&nbsp;</span>
-      <span id="openNav" onclick="openNavBar();">&#9776;</span>
+      
     </div>
 
     <!--The Titles-->
     <div class="compTitle">
+    
       <h1>CS Courses Overview</h1>
     </div>
 
     <div id="courseQuestionnaire">
-      <h2>Find Your Ideal Courses</h2>
+      <h2>Find Your Ideal Courses</h2><br>
       <p>Are you a morning person or an afternoon person?</p>
       <button onclick="buildSchedule('morning');">Morning Person</button>
       <button onclick="buildSchedule('afternoon');">Afternoon Person</button>
