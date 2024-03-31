@@ -250,7 +250,6 @@ function showSurveyButton() {
     button.style.display = "block";
 }
 
-//<<<<<<< HEAD
 // Add this function to your JavaScript file
 function toggleBouncingText() {
   var bouncingText = document.querySelector('.bouncing-text');
@@ -294,20 +293,6 @@ document.addEventListener("DOMContentLoaded", function () {
           }
       });
   });
-
-  // Add event listener to the "Find your Professors" button
-  document.querySelector('#surveyForm button[type="submit"]').addEventListener('click', function(event) {
-      event.preventDefault(); // Prevent default form submission behavior
-
-      // Close the side navigation bar
-      closeNavBar();
-
-      // Get the value of textbox9
-      var className = document.getElementById('textbox9').value;
-
-      // Show the main content button with the class name
-      showMainContentButton(className);
-  });
 });
 
 // Function to show the main content button with the class name
@@ -323,7 +308,6 @@ function showMainContentButton(className) {
   document.getElementById('mainContent').appendChild(mainContentButton);
 }
 
-//=======
 function hideSurveyButton() {
     var buttonDiv = document.getElementById("surveyButton");
     var button = buttonDiv.querySelector("button");
@@ -331,7 +315,6 @@ function hideSurveyButton() {
     button.style.display = "none";
     image.style.display = "block";
 }
-//>>>>>>> 080990173b8a7c15ffd4097207faec5cc94c3dfd
 
 function getProfRecs() {
 

@@ -17,12 +17,10 @@
  <!-- Add this inside the <body> tag at the top -->
   <img src="EduConnectIcon.png" alt="EduConnect Logo" class="top-left-logo">
 
-  <body onload="generateNavBar(); videoID(['fugueIIIframe', 'preludeXXIIIIframe', 'preludeXXIIIIframe1', 'preludeXXIIIIframe2', 'preludeXXIIIIframe3', 'invention6Iframe', 'invention8Iframe', 'invention13Iframe', 'invention14Iframe']);" onresize="resizeWindow();">
+  <body onresize="resizeWindow();">
     <!--Top Bar-->
     <div id="topBar">
       <span onmouseover="hovIcon();" onmouseout="unHovIcon();" onclick="clickIcon();"><a href="landing.html"><img id="homeIcon" src="homeIcon.png"></a></span>
-      <span>&nbsp;</span>
-      <span id="openNav" onclick="openNavBar();">&#9776;</span>
     </div>
 
     <!--The Titles-->
@@ -31,6 +29,7 @@
     </div>
 
     <div id="courseQuestionnaire">
+      <br>
       <h2>Find Your Ideal Courses</h2>
       <p>Are you a morning person or an afternoon person?</p>
       <button onclick="buildSchedule('morning');">Morning Person</button>
