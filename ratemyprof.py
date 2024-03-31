@@ -2,7 +2,7 @@ import csv
 import requests
 from bs4 import BeautifulSoup
 
-def get_reviews(first_name, last_name):
+def query_rmp(first_name, last_name):
     search_url = "https://www.ratemyprofessors.com/search/professors/696?q=%s+%s" % (first_name, last_name)
 
     resp = requests.get(search_url)
@@ -36,20 +36,23 @@ def get_reviews(first_name, last_name):
         return None
 
 
+def get_reviews(names):
+    outputs = [["Professor_Column", "Results"]]
+    for name in names:
+        name_arr = name.split(", ")
+        first_name = name_arr[1]
+        last_name = name_arr[0]
+        reviews = query_rmp(first_name, last_name)
+        output = [first_name + " " + last_name, reviews]
+        outputs.append(output)
+
+    return outputs
 
 def main():
     with open("names.txt", "r") as f:
         names = f.read().split("\n")
 
-    outputs = []
-    for name in names:
-        name_arr = name.split(", ")
-        first_name = name_arr[1]
-        last_name = name_arr[0]
-        reviews = get_reviews(first_name, last_name)
-        output = [first_name + " " + last_name, reviews]
-        outputs.append(output)
-
+    outputs = get_reviews(names)
     with open("reviews.csv", "w", newline="") as f:
         writer = csv.writer(f)
         for prof in outputs:
@@ -57,4 +60,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    get_reviews()
