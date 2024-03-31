@@ -9,16 +9,19 @@ def get_compatibility(output_string, user_inputs):
                    'forum_question_quality':int(output_list[5])}
     compatibility_score = 0
     #lectures
-    compatibility_score += (abs(user_inputs['lecture_frequency'] - llm_outputs['lecture_quality'])
-                            * 0.02 * user_inputs['lecture_importance'])
+    compatibility_score += (abs(int(user_inputs['lecture_frequency']) - llm_outputs['lecture_quality'])
+                            * 0.02 * int(user_inputs['lecture_importance']))
     #workload
-    compatibility_score += abs(user_inputs['workload_handling_ability'] - llm_outputs['workload_difficulty'])
+    compatibility_score += abs(int(user_inputs['workload_handling_ability']) - llm_outputs['workload_difficulty'])
     #exams
-    compatibility_score += abs(user_inputs['exam_ability'] - llm_outputs['exam_heaviness'])
+    compatibility_score += abs(int(user_inputs['exam_ability']) - llm_outputs['exam_heaviness'])
     #in class questions
-    compatibility_score += (abs(user_inputs['in_class_question_frequency'] - llm_outputs['in_class_question_quality'])
-                            * 0.02 * user_inputs['in_class_question_importance'])
+    compatibility_score += (abs(int(user_inputs['in_class_question_frequency']) - llm_outputs['in_class_question_quality'])
+                            * 0.02 * int(user_inputs['in_class_question_importance']))
     #forum questions
-    compatibility_score += (abs(user_inputs['forum_question_frequency'] - llm_outputs['forum_question_quality'])
-                            * 0.02 * user_inputs['forum_question_weight'])
+    compatibility_score += (abs(int(user_inputs['forum_question_frequency']) - llm_outputs['forum_question_quality'])
+                            * 0.02 * int(user_inputs['forum_question_weight']))
     return output_list[0], 100 - compatibility_score/5
+
+if __name__ == "__main__":
+    print(get_compatibility(example, user_inputs))
