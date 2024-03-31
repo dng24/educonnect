@@ -1,3 +1,5 @@
+class_code_mappings = {"cs2510": "CS 2510: Fundamentals of Computer Science 2"}
+
 //Shows the pop up box with the information for each piece
 function showModal(piece) {
   //cannot set video height while display is none bc the width is "60%", so
@@ -13,7 +15,7 @@ function hideModal(piece){
 }
 
 function createModal(class_code, results) {
-    console.log("CREATE MODAL");
+    console.log("CREATE MODAL " + class_code);
     // Create the modal container div
     var modalContainer = document.createElement('div');
     modalContainer.id = class_code + 'Modal';
@@ -33,7 +35,7 @@ function createModal(class_code, results) {
 
     // Create the heading elements
     var heading1 = document.createElement('h3');
-    heading1.textContent = class_code;
+    heading1.textContent = class_code_mappings[class_code];
 
     var heading2 = document.createElement('h4');
     heading2.textContent = 'Professor Rankings:';
@@ -48,6 +50,15 @@ function createModal(class_code, results) {
         var listItem = document.createElement('li');
         listItem.textContent = "Professor " + key + ' - Rank #' + i;
         list.appendChild(listItem);
+        var strenWeakUl = document.createElement("ul");
+        var strengths = document.createElement("li");
+        var weaknesses = document.createElement("li");
+        strengths.textContent = results[key][1];
+        weaknesses.textContent = results[key][2];
+        strenWeakUl.appendChild(strengths);
+        strenWeakUl.appendChild(weaknesses);
+        list.appendChild(strenWeakUl);
+        i += 1;
     }
 
     // Append elements to the modal content div
@@ -64,7 +75,7 @@ function createModal(class_code, results) {
 
     //--------------------
     var button = document.createElement("button");
-    button.textContent = class_code;
+    button.textContent = class_code_mappings[class_code];
     button.onclick = function() {
         showModal(class_code + "Modal");
     };
@@ -323,10 +334,8 @@ function getProfRecs() {
   // Initialize an object to store input values
   var inputValues = {"class_code": "", "ratings": {}};
 
-  var classCodeInput = document.querySelectorAll('input[type="text"]');
-  classCodeInput.forEach(function(input) {
-    inputValues["class_code"] = input.value;
-  });
+  var classCodeInput = document.getElementById("class_code");
+  inputValues["class_code"] = classCodeInput.value;
 
   // Get the input elements by id or class
   var ratingInputs = document.querySelectorAll('input[type="range"]');
@@ -356,7 +365,7 @@ function getProfRecs() {
   .then(data => {
     console.log('Form submission successful:', data);
     closeNavBar();
-    createModal(classCodeInput[0].value, data);
+    createModal(classCodeInput.value, data);
   })
   .catch(error => {
     console.error('There was a problem with the form submission:', error);

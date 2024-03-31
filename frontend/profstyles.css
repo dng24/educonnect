@@ -462,7 +462,7 @@ nav .text-box label {
     margin-bottom: 80px;
     animation: bounce 1s infinite;
     position: absolute;
-    left: 1640px;
+    right: 35px;
     transform: translateX(-50%);
     bottom: 100px; /* Adjust this value to position the text above the plus button */
     font-family: 'Asap', sans-serif; /* Using the same font family as in your HTML head */
