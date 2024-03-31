@@ -2,7 +2,7 @@ import csv
 import openai
 
 # Fetch the OpenAI API key from an environment variable
-openai.api_key = "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"
+openai.api_key = ""
 
 # Function to make a generic OpenAI API call
 # Function to make a generic OpenAI API call using the chat model
