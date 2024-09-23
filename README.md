@@ -2,9 +2,14 @@
 #### A web application to pair students with the instructors most compatible with their learning style
 This application was created in less than 48 hours as part of the Innovate hackathon at Northeastern University produced by the AINU club, and the Babson 
 AI club.
-## Functionality
-The app consists of 5 main components which are not mutually exclusive: The frontend, the backend, the web scrapers, the LLM integration, and the custom ranking algorithm. 
-The backend contains all other components with the exception of the frontend.
+## Functionality / TLDR;
+The app consists of 5 main components which are not mutually exclusive: 
+- The frontend
+- the backend
+  - The backend contains all other components with the exception of the frontend.
+- the web scrapers
+- the LLM integration
+- the custom ranking algorithm. 
 ### Frontend
 The primarily functional part of the front end is contained in the **insert file** file. 
 This is where users can use the sliders to answer questions about their study habits and their learning styles. They 
