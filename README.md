@@ -51,6 +51,9 @@ Potential future features include:
 
 ## Credits
 Daniel Ip - Selenium Webscraper, Custom Algorithm
+
 Dev Patel - LLM integration/prompt engineering
+
 Derek Ng - Flask App, ratemyprofessor webscraper
+
 Anthony Campos, Julia Arkin, Yefan Evelyn He - Front end design
