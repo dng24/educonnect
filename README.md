@@ -12,7 +12,7 @@ EduConnect consists of 5 main components:
 - Custom Ranking Algorithm
 
 ## Demo Video
-**[Insert demo video]**
+[Youtube video demo](https://youtu.be/mEA085TzxbI)
 
 ## Functionality
 ### Frontend
@@ -50,7 +50,7 @@ Potential future features include:
 - Automatic schedule suggestions based on student preferences.
 
 ## Credits
-Daniel Ip - Selenium Webscraper, Custom Algorithm
+Daniel Ip - Selenium Webscraper, Custom Algorithm, README file
 
 Dev Patel - LLM integration/prompt engineering
 
